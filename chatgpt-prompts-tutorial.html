@@ -95,14 +95,26 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <header class="header">
+        <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 20px;">
+            <a href="index.html" style="text-decoration: none; color: var(--primary); font-weight: 600; display: flex; align-items: center;">
+                <i class="fas fa-robot" style="margin-right: 10px;"></i>
+                The AI Heaven
+            </a>
+            <button id="themeToggle" aria-label="Toggle dark mode" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text);">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
     <main class="post-container">
         <article class="post">
             <header class="post-header">
                 <div class="post-meta">
                     <span class="category">Guide</span>
-                    <span class="date">July 2024</span>
+                    <span class="date">May 2025</span>
                     <span class="read-time">5 min read</span>
                 </div>
                 <h1>🧠 Why Prompt Engineering Matters</h1>
@@ -150,5 +162,33 @@
             </div>
         </article>
     </main>
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check user's saved preference or system preference for dark mode
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
