@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Essential Guide to Prompt Engineering | AI Heaven</title>
+    <title>Why Prompt Engineering Matters | The AI Heaven</title>
     <meta name="description" content="Learn how prompt engineering unlocks AI's potential - techniques for ChatGPT and beyond">
     <style>
         :root {
@@ -35,146 +35,77 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--bg);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.25rem;
-            color: var(--text);
-        }
-
         .post-container {
             max-width: 800px;
-            margin: 6rem auto 2rem;
+            margin: 2rem auto;
             padding: 0 20px;
         }
-        
+
         .post-header {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-align: center;
         }
-        
+
         h1 {
             color: var(--primary);
             font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
-        
+
         h2 {
             color: var(--primary);
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             font-size: 1.8rem;
         }
-        
+
         h3 {
-            margin-top: 2rem;
-            font-size: 1.4rem;
+            margin-top: 1.8rem;
         }
-        
-        p {
-            margin: 1rem 0;
-        }
-        
+
         .post-meta {
             color: var(--text-light);
+            margin-bottom: 1.5rem;
             display: flex;
-            gap: 1rem;
             justify-content: center;
-            margin-bottom: 2rem;
-        }
-        
-        .post-author {
-            display: flex;
-            align-items: center;
             gap: 1rem;
-            justify-content: center;
-            margin: 1.5rem 0;
         }
-        
-        .post-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+
+        .category {
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
         }
-        
+
+        .post-content {
+            line-height: 1.7;
+        }
+
         .highlight-box {
             background: var(--bg-secondary);
             padding: 1.5rem;
             border-radius: 8px;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             border: 1px solid var(--border);
         }
-        
-        ul, ol {
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        li {
-            margin-bottom: 0.8rem;
-        }
-        
+
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             h2 { font-size: 1.6rem; }
-            .post-container {
-                margin-top: 5rem;
-            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:var(--text);">
-                    <i class="fas fa-robot" style="margin-right:10px;color:var(--primary);"></i>
-                    <span style="font-weight:700;">The AI Heaven</span>
-                </a>
-            </div>
-            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </header>
-
     <main class="post-container">
         <article class="post">
             <header class="post-header">
                 <div class="post-meta">
-                    <span>Updated: July 2024</span>
-                    <span>8 min read</span>
+                    <span class="category">Guide</span>
+                    <span class="date">July 2024</span>
+                    <span class="read-time">5 min read</span>
                 </div>
                 <h1>🧠 Why Prompt Engineering Matters</h1>
-                <div class="post-author">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
-                    <div>
-                        <p style="margin:0;font-weight:600;">Sarah Chen</p>
-                        <p style="margin:0;color:var(--text-light);">AI Prompt Engineer</p>
-                    </div>
-                </div>
             </header>
 
             <div class="post-content">
@@ -184,12 +115,12 @@
                 <p>Prompt engineering is the art of crafting clear and effective inputs (prompts) to guide AI models toward producing desired outputs. Think of it as giving the AI a well-defined roadmap to follow, ensuring the responses are accurate and relevant.</p>
 
                 <div class="highlight-box">
-                    <h3 style="margin-top:0;">Key Benefits:</h3>
+                    <h3 style="margin-top: 0;">Key Benefits:</h3>
                     <ul>
-                        <li><strong>Clarity Enhances Output:</strong> AI models interpret prompts based on patterns in data. A well-structured prompt reduces ambiguity, leading to more accurate and useful responses.</li>
-                        <li><strong>Efficiency in Communication:</strong> By specifying the context and desired outcome, prompt engineering streamlines interactions with AI, saving time and reducing the need for follow-up questions.</li>
-                        <li><strong>Customization:</strong> Tailored prompts can adjust the tone, style, and complexity of AI outputs, making them suitable for various audiences and purposes.</li>
-                        <li><strong>Problem-Solving:</strong> Effective prompts can help AI models break down complex problems into manageable steps, facilitating better reasoning and solutions.</li>
+                        <li><strong>Clarity Enhances Output:</strong> Reduces ambiguity for more accurate responses</li>
+                        <li><strong>Efficiency:</strong> Saves time by minimizing follow-up questions</li>
+                        <li><strong>Customization:</strong> Adapts outputs for different audiences</li>
+                        <li><strong>Problem-Solving:</strong> Helps break down complex tasks</li>
                     </ul>
                 </div>
 
@@ -203,14 +134,14 @@
                 <h3>Healthcare</h3>
                 <p>Professionals develop prompts to assist in patient communication, data analysis, and research summaries.</p>
 
-                <h2>Getting Started with Prompt Engineering</h2>
+                <h2>Getting Started</h2>
                 <div class="highlight-box">
-                    <h3 style="margin-top:0;">Prompt Engineering Checklist:</h3>
+                    <h3 style="margin-top: 0;">Prompt Engineering Checklist:</h3>
                     <ol>
-                        <li><strong>Be Specific:</strong> Clearly define the task and desired outcome.</li>
-                        <li><strong>Provide Context:</strong> Include relevant information to guide the AI's response.</li>
-                        <li><strong>Set the Format:</strong> Specify the structure or style you want in the output.</li>
-                        <li><strong>Iterate and Refine:</strong> Experiment with different prompts to see what yields the best results.</li>
+                        <li><strong>Be Specific:</strong> Clearly define the task</li>
+                        <li><strong>Provide Context:</strong> Include relevant background</li>
+                        <li><strong>Set the Format:</strong> Specify response structure</li>
+                        <li><strong>Iterate:</strong> Test and refine prompts</li>
                     </ol>
                 </div>
 
@@ -219,34 +150,5 @@
             </div>
         </article>
     </main>
-
-    <script>
-        // Dark mode toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        // Check for saved preference
-        const savedTheme = localStorage.getItem('theme') || 
-                         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        
-        if (savedTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-    </script>
 </body>
 </html>
