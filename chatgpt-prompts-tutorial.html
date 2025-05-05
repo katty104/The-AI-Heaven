@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +18,6 @@
       --bg-secondary: #f7fafc;
       --border: #e2e8f0;
     }
-
     [data-theme="dark"] {
       --primary: #8a63d2;
       --text: #f7fafc;
@@ -26,7 +26,6 @@
       --bg-secondary: #2d3748;
       --border: #4a5568;
     }
-
     body {
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
@@ -36,34 +35,28 @@
       padding: 0;
       transition: background 0.3s ease, color 0.3s ease;
     }
-
     .post-container {
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 20px;
     }
-
     .post-header {
       margin-bottom: 2rem;
       text-align: center;
     }
-
     h1 {
       color: var(--primary);
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
-
     h2 {
       color: var(--primary);
       margin-top: 2.5rem;
       font-size: 1.8rem;
     }
-
     h3 {
       margin-top: 1.8rem;
     }
-
     .post-meta {
       color: var(--text-light);
       margin-bottom: 1.5rem;
@@ -71,18 +64,15 @@
       justify-content: center;
       gap: 1rem;
     }
-
     .category {
       background: var(--primary);
       color: white;
       padding: 0.2rem 0.8rem;
       border-radius: 20px;
     }
-
     .post-content {
       line-height: 1.7;
     }
-
     .highlight-box {
       background: var(--bg-secondary);
       padding: 1.5rem;
@@ -90,7 +80,6 @@
       margin: 1.5rem 0;
       border: 1px solid var(--border);
     }
-
     .cta {
       margin-top: 2rem;
       text-align: center;
@@ -99,90 +88,17 @@
       color: white;
       border-radius: 8px;
     }
-
     .cta a {
       color: #fff;
       font-weight: bold;
       text-decoration: underline;
     }
-
-    .breadcrumb {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      color: var(--text-light);
-    }
-
-    .breadcrumb a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .featured-image img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-
-    .btn-secondary {
-      background: var(--primary-light);
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    footer {
-      background: var(--bg-secondary);
-      padding: 2rem 0;
-      margin-top: 4rem;
-      color: var(--text);
-    }
-
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      justify-content: space-between;
-    }
-
-    .footer-col h3 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-top: 2rem;
-    }
-
-    .social-links a {
-      margin-right: 10px;
-      color: var(--text-light);
-      font-size: 1.2rem;
-    }
-
     @media (max-width: 768px) {
       h1 { font-size: 2rem; }
       h2 { font-size: 1.6rem; }
-      .footer-grid { flex-direction: column; }
     }
   </style>
 </head>
-
 <body>
   <header class="header">
     <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 20px;">
@@ -195,10 +111,9 @@
       </button>
     </div>
   </header>
-
   <main class="post-container">
-    <nav class="breadcrumb">
-      <a href="index.html">Home</a> / <span>Prompt Engineering</span>
+    <nav class="breadcrumb" style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-light);">
+      <a href="index.html" style="color: var(--primary); text-decoration: none;">Home</a> / <span>Prompt Engineering</span>
     </nav>
 
     <article class="post">
@@ -210,16 +125,15 @@
         </div>
         <h1>🧠 Why Prompt Engineering Matters</h1>
         <p><em>Mastering how you talk to AI is like learning a new language—one that can multiply your productivity and creativity.</em></p>
-        <div class="featured-image" style="text-align: center; margin: 2rem 0;">
-          <img src="prompt-illustration.png" alt="Prompt engineering visualized with AI assistant" />
+        <div style="text-align: center; margin: 2rem 0;">
+          <img src="prompt-illustration.png" alt="Prompt engineering visualized with AI assistant" style="max-width: 100%; border-radius: 8px;">
         </div>
       </header>
-
       <div class="post-content">
-        <p>Artificial Intelligence (AI) is rapidly transforming how we live, work, and think...</p>
+        <p>Artificial Intelligence (AI) is rapidly transforming how we live, work, and think. Yet, few realize that behind every smart chatbot or intelligent assistant lies a subtle but powerful art: prompt engineering. This emerging skill is essential for unlocking the true potential of generative AI tools like ChatGPT, Claude, or Bard.</p>
 
         <h2>What Is Prompt Engineering? 🤔</h2>
-        <p>Prompt engineering is the practice of designing and refining text instructions to guide AI systems...</p>
+        <p>Prompt engineering is the practice of designing and refining text instructions to guide AI systems. Just like clear communication between people leads to better outcomes, well-crafted prompts lead to smarter, more accurate responses from AI models.</p>
 
         <div class="highlight-box">
           <h3 style="margin-top: 0;">Key Benefits:</h3>
@@ -232,22 +146,29 @@
         </div>
 
         <h2>Modern Prompting Techniques 🚀</h2>
+
         <h3>1. Chain-of-Thought (CoT)</h3>
-        <p>Ask the AI to think out loud step by step...</p>
+        <p>Ask the AI to think out loud step by step. This technique improves logical reasoning, especially in math and code tasks.</p>
+
         <h3>2. Tree-of-Thought (ToT)</h3>
-        <p>Instead of a single path, the AI explores multiple branches of reasoning...</p>
+        <p>Instead of a single path, the AI explores multiple branches of reasoning and evaluates the best path forward.</p>
+
         <h3>3. Few-Shot and Zero-Shot Learning</h3>
-        <p>Give examples (few-shot) or none (zero-shot)...</p>
+        <p>Give examples (few-shot) or none (zero-shot) to let the AI understand your expected format and tone.</p>
+
         <h3>4. Self-Consistency Decoding</h3>
-        <p>Ask for multiple outputs and select the most consistent...</p>
+        <p>Ask for multiple outputs and select the most consistent or useful one from a set of varied answers.</p>
 
         <h2>Real-World Applications 🌍</h2>
+
         <h3>Education</h3>
-        <p>Instructors generate custom quizzes, lessons, summaries...</p>
+        <p>Instructors generate custom quizzes, interactive lessons, and summarize reading materials efficiently using well-designed prompts.</p>
+
         <h3>Business</h3>
-        <p>Marketing teams generate email copy, product descriptions...</p>
+        <p>Marketing teams generate email copy, product descriptions, and campaign ideas through specialized prompt templates.</p>
+
         <h3>Healthcare</h3>
-        <p>Researchers summarize articles or generate drafts...</p>
+        <p>Medical researchers summarize articles or patient histories. Administrators generate policy drafts or responses to common queries.</p>
 
         <h2>Getting Started 🛠️</h2>
         <div class="highlight-box">
@@ -255,65 +176,75 @@
           <ol>
             <li><strong>Be Specific:</strong> State the goal and structure clearly.</li>
             <li><strong>Provide Context:</strong> Add background information or examples.</li>
-            <li><strong>Set the Format:</strong> Ask for lists, tables, summaries.</li>
-            <li><strong>Iterate:</strong> Tweak and compare outputs.</li>
+            <li><strong>Set the Format:</strong> Request bullet points, tables, or summaries.</li>
+            <li><strong>Iterate:</strong> Tweak, compare, and improve based on outputs.</li>
           </ol>
         </div>
 
         <h2>Conclusion & Next Steps</h2>
-        <p>Prompt engineering is more than a skill—it’s a new literacy for the AI age...</p>
+        <p>Prompt engineering is more than a skill—it’s a new literacy for the AI age. Whether you're a student, creator, or entrepreneur, learning how to talk to AI is essential. Begin small, experiment, and evolve your techniques.</p>
 
         <div class="cta">
           Want to take your AI skills further? <a href="#">Subscribe</a> for more practical guides and case studies.
         </div>
 
         <div style="text-align: center; margin-top: 2rem;">
-          <a href="index.html" class="btn-secondary">← Back to Homepage</a>
+          <a href="index.html" class="btn-secondary" style="background: var(--primary-light); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; display: inline-block;">← Back to Homepage</a>
         </div>
+
       </div>
     </article>
   </main>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>The AI Heaven</h3>
-        <p>Your resource for learning about AI and using tools effectively.</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>The AI Heaven</h3>
+          <p>Your comprehensive resource for learning about artificial intelligence and how to use AI tools effectively.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tutorials">Tutorials</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#tools">AI Tools</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Beginner's Guide</a></li>
+            <li><a href="#">AI Glossary</a></li>
+            <li><a href="#">Tool Comparisons</a></li>
+            <li><a href="#">Case Studies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> info@aiheaven.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+          </ul>
         </div>
       </div>
-      <div class="footer-col">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html#tutorials">Tutorials</a></li>
-          <li><a href="index.html#articles">Articles</a></li>
-          <li><a href="index.html#tools">AI Tools</a></li>
-          <li><a href="index.html#about">About</a></li>
-        </ul>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2025</span> The AI Heaven. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <h3>Resources</h3>
-        <ul>
-          <li><a href="#">Beginner's Guide</a></li>
-          <li><a href="#">AI Glossary</a></li>
-          <li><a href="#">Tool Comparisons</a></li>
-          <li><a href="#">Case Studies</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <ul>
-          <li><i class="fas fa-envelope"></i> info@aiheaven.com</li>
-          <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 The AI Heaven. All rights reserved.</p>
     </div>
   </footer>
 
@@ -325,7 +256,6 @@
       document.documentElement.setAttribute('data-theme', 'dark');
       themeIcon.classList.replace('fa-moon', 'fa-sun');
     }
-
     themeToggle.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       if (currentTheme === 'dark') {
