@@ -15,6 +15,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add this CSS to fix your layout */
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-content p {
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-secondary {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+    </style>
 </head>
     <!-- Cookie Banner for The AI Heaven -->
 <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: rgba(40, 40, 50, 0.95); color: #fff; padding: 1rem; font-family: 'Inter', sans-serif; text-align: center; z-index: 9999; display: none; box-shadow: 0 -2px 10px rgba(0,0,0,0.4);">
