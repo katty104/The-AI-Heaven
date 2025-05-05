@@ -5,70 +5,195 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | The AI Heaven</title>
   <meta name="description" content="Learn how The AI Heaven handles your personal data and protects your privacy." />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #6e48aa;
+      --primary-light: #9d50bb;
+      --text: #2d3748;
+      --text-light: #4a5568;
+      --bg: #ffffff;
+      --bg-secondary: #f7fafc;
+      --border: #e2e8f0;
+    }
+    [data-theme="dark"] {
+      --primary: #8a63d2;
+      --text: #f7fafc;
+      --text-light: #cbd5e0;
+      --bg: #1a202c;
+      --bg-secondary: #2d3748;
+      --border: #4a5568;
+    }
+
     body {
       margin: 0;
-      padding: 2rem;
-      background-color: #121212;
-      color: #f0f0f0;
+      padding: 0;
       font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      transition: background 0.3s ease, color 0.3s ease;
     }
-    a {
-      color: #bb86fc;
-      text-decoration: underline;
+
+    .header {
+      background: var(--bg);
+      padding: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    h1 {
-      color: #bb86fc;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+
     .container {
       max-width: 800px;
-      margin: auto;
+      margin: 0 auto;
+      padding: 2rem 20px;
     }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-top: 2.5rem;
+      font-size: 1.8rem;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     .back-btn {
       display: inline-block;
       margin-top: 2rem;
-      padding: 0.5rem 1rem;
-      background-color: #9f6fe8;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
       color: white;
-      text-decoration: none;
       border-radius: 8px;
       font-weight: 500;
+      transition: all 0.3s ease;
     }
+
     .back-btn:hover {
-      background-color: #b88fff;
+      background: var(--primary-light);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      margin-left: auto;
+    }
+
+    .theme-toggle button {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    ul {
+      line-height: 1.8;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html" aria-label="Go to homepage">
+          <i class="fas fa-robot" aria-hidden="true"></i>
+          <span>The AI Heaven</span>
+        </a>
+      </div>
+      <div class="theme-toggle">
+        <button id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
   <div class="container">
     <h1>Privacy Policy</h1>
-    <p>At <strong>The AI Heaven</strong>, your privacy is important to us. This Privacy Policy explains what personal data we collect, how we use it, and your rights regarding that information.</p>
+    <p>At <strong>The AI Heaven</strong>, we respect your privacy and are committed to protecting your personal data.</p>
 
     <h2>Information We Collect</h2>
     <ul>
-      <li>Basic contact information (if you subscribe or contact us)</li>
-      <li>Usage data (e.g., page views, clicks, via analytics tools)</li>
-      <li>Cookies and similar tracking technologies</li>
+      <li>Email address (if you subscribe to our newsletter)</li>
+      <li>Usage data (e.g. page views, interactions via analytics tools)</li>
+      <li>Cookie information (see <a href="cookies.html">Cookie Policy</a>)</li>
     </ul>
 
+    <h2>Newsletter</h2>
+    <p>If you choose to subscribe, we will only use your email to send updates and blog content from The AI Heaven. You can unsubscribe at any time via a link in the email or by contacting us.</p>
+
     <h2>How We Use Your Data</h2>
-    <p>We use your data to:</p>
     <ul>
-      <li>Improve website performance and user experience</li>
-      <li>Respond to your messages or feedback</li>
-      <li>Analyze trends and content performance</li>
+      <li>To improve your experience on the site</li>
+      <li>To send email updates if you subscribe</li>
+      <li>To understand visitor behavior through analytics</li>
     </ul>
 
     <h2>Your Rights</h2>
-    <p>You can request access, correction, or deletion of your personal data at any time. Just <a href="/about.html">contact us</a> directly.</p>
+    <p>You have the right to access, correct, or delete your data. You can also request to stop receiving emails at any time. You can unsubscribe at any time via a link in the email or by contacting us.</p>
 
     <h2>Third-Party Services</h2>
-    <p>We may use services like Google Analytics or embedded tools that have their own privacy policies. We recommend reviewing them.</p>
+    <p>We may use tools such as Google Analytics or newsletter platforms that comply with GDPR. Please check their respective policies.</p>
 
-    <a class="back-btn" href="index.html">← Back to Home</a>
+    <a class="back-btn" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
   </div>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
 </body>
 </html>
