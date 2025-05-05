@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>How to Generate Stunning Images with DALL·E | The AI Heaven</title>
+    <meta name="description" content="Learn how to create amazing AI-generated images with DALL·E - prompt techniques and practical examples">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --primary-light: #9d50bb;
+            --text: #2d3748;
+            --text-light: #4a5568;
+            --bg: #ffffff;
+            --bg-secondary: #f7fafc;
+            --border: #e2e8f0;
+        }
+        [data-theme="dark"] {
+            --primary: #8a63d2;
+            --text: #f7fafc;
+            --text-light: #cbd5e0;
+            --bg: #1a202c;
+            --bg-secondary: #2d3748;
+            --border: #4a5568;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .header {
+            background: var(--bg);
+            padding: 1rem 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle button {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text);
+            padding: 0.5rem;
+        }
+
+        .breadcrumb {
+            padding: 1rem 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            white-space: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 1rem 15px 2rem;
+            padding: 0.7rem 1rem;
+            background: var(--bg-secondary);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .back-button i {
+            margin-right: 5px;
+        }
+
+        .post-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .post-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+
+        h3 {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            padding: 0 10px;
+        }
+
+        .post-meta {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .category {
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .post-content {
+            line-height: 1.7;
+            font-size: 1rem;
+            padding: 0 10px;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem auto;
+            display: block;
+        }
+
+        .highlight-box {
+            background: var(--bg-secondary);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .cta {
+            margin: 2rem 0;
+            text-align: center;
+            padding: 1rem;
+            background: var(--primary-light);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .cta a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        pre {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: var(--bg-secondary);
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 0 15px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .prompt-template-container {
+            margin: 1.5rem 0;
+        }
+
+        .prompt-template {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: var(--bg);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            max-width: 100%;
+        }
+
+        .prompt-template pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text);
+            line-height: 1.5;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 480px) {
+            .breadcrumb {
+                white-space: normal;
+                overflow-x: visible;
+            }
+            
+            .back-button {
+                width: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .post-container {
+                max-width: 800px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .prompt-template pre {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        .prompt-template-container {
+            margin: 1.5rem 0;
+        }
+
+        .prompt-template {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .prompt-header {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prompt-header i {
+            font-size: 0.9rem;
+        }
+
+        .prompt-template pre {
+            margin: 0;
+            padding: 1.2rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+        }
+
+        .prompt-template code {
+            display: block;
+            padding: 0;
+            background: transparent;
+            border: none;
+        }
+
+        .placeholder {
+            color: var(--primary-light);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .prompt-template pre {
+                font-size: 0.85rem;
+                padding: 1rem;
+            }
+            
+            .prompt-header {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .prompt-template pre {
+                font-size: 0.95rem;
+            }
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .example-label {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .example-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html" aria-label="Go to homepage">
+                <i class="fas fa-robot" aria-hidden="true"></i>
+                <span>The AI Heaven</span>
+            </a>
+        </div>
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="post-container">
+        <div class="breadcrumb">Home > Tutorials > AI Art</div>
+
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <article class="post">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="category">Tutorial</span>
+                    <span class="date">May 2025</span>
+                    <span class="read-time">15 min read</span>
+                </div>
+                <h1>🎨 How to Generate Stunning Images with DALL·E</h1>
+                <p><strong>By The AI Heaven</strong></p>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <img src="dalle-illustration.jpg" alt="AI generating images with DALL·E" style="max-width: 100%; height: auto;">
+                </div>
+            </header>
+            <div class="post-content">
+                <p>What if you could describe a scene in your mind and instantly see it come to life as an image? That's exactly what DALL·E lets you do — and this guide will teach you how to use it effectively, even if you're just starting.</p>
+
+                <h2>🧠 What Is DALL·E and How Does It Work?</h2>
+                <p>DALL·E is an AI tool developed by OpenAI that transforms text into images. It's like having an illustrator that understands natural language. You describe what you want — and it creates it.</p>
+                <p>Under the hood, DALL·E has been trained on a massive dataset of image–text pairs. When you write a prompt, it analyzes the words, interprets the structure, and generates a visual composition based on that information.</p>
+                <p>DALL·E 3 is currently available inside ChatGPT (for Plus users) and is more advanced in following instructions, handling complex scenes, and understanding styles.</p>
+
+                <h2>🚀 Why Use DALL·E?</h2>
+                <p>There are several AI image generators available, but DALL·E is:</p>
+                <ul>
+                    <li><strong>Easy to use:</strong> No installation, just open ChatGPT.</li>
+                    <li><strong>Flexible:</strong> From realistic photos to fantasy illustrations.</li>
+                    <li><strong>Editable:</strong> Modify specific parts of an image with inpainting.</li>
+                    <li><strong>Smart with language:</strong> Understands nuance, relationships, and mood.</li>
+                    <li><strong>Focused on creativity:</strong> Ideal for creators, marketers, designers, and anyone with imagination.</li>
+                </ul>
+
+                <h2>✏️ Writing Effective Prompts</h2>
+                <p>Writing a great prompt is like briefing an artist — the clearer you are, the better the results.</p>
+                <p>Here's a basic prompt structure you can follow:</p>
+                
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <div class="prompt-header">
+                            <i class="fas fa-magic"></i>
+                            <span>PROMPT TEMPLATE</span>
+                        </div>
+                        <pre><code>[Main subject], [Style or medium], [Lighting], [Color palette], [Mood], [Extra details]</code></pre>
+                    </div>
+                </div>
+
+                <div class="example-grid">
+                    <div class="example-item">
+                        <div class="example-label">Example 1:</div>
+                        <p>"A serene mountain lake at sunrise, digital painting, soft light, pastel colors, peaceful atmosphere"</p>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">Example 2:</div>
+                        <p>"A futuristic city skyline at night, neon lights, cinematic lighting, dramatic contrast, cyberpunk aesthetic"</p>
+                    </div>
+                </div>
+
+                <p>DALL·E works best when you describe what, how, and why — not just what's in the scene, but how it should feel and look.</p>
+
+                <h2>🎯 Prompting Techniques That Work</h2>
+                <p>Here are a few ways to improve your results:</p>
+
+                <h3>1. Be Specific</h3>
+                <p>Avoid vague prompts like "a nice landscape." Instead, say:</p>
+                <blockquote>"a foggy forest in autumn with orange leaves and diffused morning light"</blockquote>
+
+                <h3>2. Use Artistic References</h3>
+                <p>You can include styles like:</p>
+                <ul>
+                    <li>watercolor</li>
+                    <li>oil painting</li>
+                    <li>digital art</li>
+                    <li>isometric illustration</li>
+                    <li>pencil sketch</li>
+                </ul>
+                <p>Example:</p>
+                <blockquote>"a steampunk airship, isometric view, ink drawing style"</blockquote>
+
+                <h3>3. Add Camera or Composition Terms</h3>
+                <p>Photographic prompts benefit from:</p>
+                <ul>
+                    <li>"close-up portrait"</li>
+                    <li>"wide angle shot"</li>
+                    <li>"macro lens"</li>
+                    <li>"bokeh background"</li>
+                </ul>
+
+                <h2>🔁 How to Edit Images with DALL·E</h2>
+                <p>Once an image is generated, you can click on it and:</p>
+                <ol>
+                    <li>Select an area to erase.</li>
+                    <li>Describe what you want instead.</li>
+                    <li>Let DALL·E regenerate that part while keeping the rest.</li>
+                </ol>
+                <p>This is useful for refining outputs — for example, changing a character's expression, adding objects, or altering the sky.</p>
+
+                <h2>🔄 Examples of Prompt Variations</h2>
+                <p>Try changing a few keywords and observe how the style shifts:</p>
+                <div class="example-grid">
+                    <div class="example-item">
+                        <div class="example-label">Original:</div>
+                        <p>"A cozy reading nook with warm lighting" → homey, soft tones</p>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">Variation 1:</div>
+                        <p>"A robotic owl in a futuristic lab, photorealistic" → sharp, cold tones</p>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">Variation 2:</div>
+                        <p>"An ancient temple lost in the jungle, concept art style" → epic, cinematic look</p>
+                    </div>
+                </div>
+
+                <h2>⚠️ Common Prompt Mistakes (and Fixes)</h2>
+                <div class="highlight-box">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <th style="text-align: left; padding: 8px; border-bottom: 1px solid var(--border);">Mistake</th>
+                            <th style="text-align: left; padding: 8px; border-bottom: 1px solid var(--border);">Fix</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">"A cat"</td>
+                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">"A black cat with green eyes sitting on a windowsill at sunset, digital art"</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">"Landscape in watercolor"</td>
+                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">"A rolling countryside with wildflowers, watercolor painting, soft tones, bright sky"</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px;">"Futuristic woman"</td>
+                            <td style="padding: 8px;">"Portrait of a futuristic woman with glowing eyes, sci-fi setting, sharp light, hyper-realistic"</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>💼 Use Cases for DALL·E</h2>
+                <ul>
+                    <li><strong>Blog Headers:</strong> Visualize abstract concepts like productivity or creativity.</li>
+                    <li><strong>Social Media Posts:</strong> Custom illustrations for quotes or campaigns.</li>
+                    <li><strong>Marketing:</strong> Product mockups, ad creatives, brand concepts.</li>
+                    <li><strong>Publishing:</strong> Children's book illustrations, covers, concept scenes.</li>
+                    <li><strong>Storytelling:</strong> Worldbuilding for novels, RPGs, and more.</li>
+                    <li><strong>Education:</strong> Visuals for history, science, or language learning.</li>
+                </ul>
+
+                <h2>🧪 Practice Prompt Template</h2>
+                <p>Try filling in this prompt structure:</p>
+                
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <div class="prompt-header">
+                            <i class="fas fa-magic"></i>
+                            <span>PROMPT TEMPLATE</span>
+                        </div>
+                        <pre><code>A <span class="placeholder">[subject]</span> in <span class="placeholder">[location or setting]</span>, <span class="placeholder">[style or medium]</span>, <span class="placeholder">[lighting]</span>, <span class="placeholder">[color palette]</span>, <span class="placeholder">[mood or atmosphere]</span>, <span class="placeholder">[camera or composition if needed]</span></code></pre>
+                    </div>
+                </div>
+
+                <p>Example:</p>
+                <blockquote>"A treehouse in a rainforest at sunset, digital painting, golden light, warm colors, peaceful mood, wide shot"</blockquote>
+
+                <h2>💬 Frequently Asked Questions</h2>
+                <div class="highlight-box">
+                    <p><strong>Q: Can I use the images commercially?</strong><br>
+                    Yes — OpenAI allows commercial use of DALL·E images for Plus users, but you should always check the latest terms of service.</p>
+                    
+                    <p><strong>Q: How do I get higher resolution?</strong><br>
+                    You can upscale using tools like Let's Enhance or Upscale.media.</p>
+                    
+                    <p><strong>Q: Can I generate variations of the same image?</strong><br>
+                    Yes, you can regenerate or edit specific parts to get consistent results across a series.</p>
+                    
+                    <p><strong>Q: Can I generate characters or products consistently?</strong><br>
+                    DALL·E doesn't currently support image-to-image consistency like some other tools, but reusing detailed prompts helps.</p>
+                </div>
+
+                <h2>🎁 Final Tips</h2>
+                <ul>
+                    <li>Use short sentences with strong adjectives and visual verbs.</li>
+                    <li>Describe what you want to feel, not just what you want to see.</li>
+                    <li>Experiment with perspectives, lighting, and color palettes.</li>
+                    <li>Refine one part at a time using inpainting when necessary.</li>
+                    <li>Keep a prompt journal to save your best results.</li>
+                </ul>
+
+                <p>Whether you're an artist, creator, student, or entrepreneur, DALL·E can help bring your imagination to life. Start with a single idea — and turn it into something visual, beautiful, and yours.</p>
+
+                <div class="cta">
+                    <p><a href="#">Subscribe</a> to The AI Heaven for more tutorials, prompt ideas, and real-world AI inspiration.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The AI Heaven</h3>
+                    <p>Your comprehensive resource for learning about artificial intelligence and how to use AI tools effectively.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#tutorials">Tutorials</a></li>
+                        <li><a href="index.html#articles">Articles</a></li>
+                        <li><a href="index.html#tools">AI Tools</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Beginner's Guide</a></li>
+                        <li><a href="#">AI Glossary</a></li>
+                        <li><a href="#">Tool Comparisons</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@aiheaven.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> The AI Heaven. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
