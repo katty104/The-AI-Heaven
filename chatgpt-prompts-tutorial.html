@@ -126,6 +126,32 @@
             h1 { font-size: 2rem; }
             h2 { font-size: 1.6rem; }
         }
+        @media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem; /* Reduce el espacio inferior */
+    }
+    h2 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem; /* Reduce el espacio superior */
+    }
+    .post-container {
+        padding: 0 10px; /* Reduce el padding en móviles */
+    }
+}
+        @media (max-width: 600px) {
+    .breadcrumb {
+        font-size: 0.8rem; /* Reduce el tamaño del texto */
+    }
+    .post-meta {
+        flex-direction: column; /* Apila los elementos meta */
+        gap: 0.5rem;
+    }
+    .cta {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -151,7 +177,13 @@
         <a href="index.html" class="back-button">
             <i class="fas fa-arrow-left"></i> Back to Home
         </a>
-
+        .back-button {
+    padding: 0.7rem 1.2rem; /* Aumenta el área de clic */
+    font-size: 1rem; /* Aumenta el tamaño del texto */
+}
+.container {
+    padding: 0 15px; /* Agrega espacio lateral en móviles */
+}
         <article class="post">
             <header class="post-header">
                 <div class="post-meta">
@@ -163,6 +195,24 @@
                 <p><strong>By The AI Heaven</strong></p>
                 <div style="text-align: center; margin: 2rem 0;">
                     <img src="prompt-illustration.jpg" alt="Prompt engineering visualized with AI assistant" style="max-width: 100%; border-radius: 8px;">
+                    img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+                    body {
+    font-size: 16px; /* Asegúrate de que el texto sea legible */
+    line-height: 1.6; /* Mejora la separación entre líneas */
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Reduce ligeramente en pantallas más pequeñas */
+    }
+}
+                    body {
+    overflow-x: hidden; /* Evita que la página se desborde horizontalmente */
+}
                 </div>
             </header>
             <div class="post-content">
