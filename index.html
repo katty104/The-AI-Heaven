@@ -16,6 +16,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+    <!-- Cookie Banner for The AI Heaven -->
+<div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: rgba(40, 40, 50, 0.95); color: #fff; padding: 1rem; font-family: 'Inter', sans-serif; text-align: center; z-index: 9999; display: none; box-shadow: 0 -2px 10px rgba(0,0,0,0.4);">
+  <span style="font-size: 0.95rem;">We use cookies to improve your experience on The AI Heaven. <a href="/cookies.html" style="color: #cfc; text-decoration: underline;">Learn more</a>.</span>
+  <button onclick="acceptCookies()" style="margin-left: 1rem; padding: 0.4rem 1rem; background: #9f6fe8; border: none; border-radius: 6px; color: white; font-weight: 500; cursor: pointer;">Accept</button>
+</div>
+
+<script>
+  function acceptCookies() {
+    document.cookie = "aiheaven_cookies=true; max-age=31536000; path=/";
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+
+  // Mostrar solo si no está aceptado
+  window.addEventListener("DOMContentLoaded", function () {
+    if (!document.cookie.includes("aiheaven_cookies=true")) {
+      document.getElementById("cookie-banner").style.display = "block";
+    }
+  });
+</script>
+
 <body>
     <header class="header">
         <div class="container">
