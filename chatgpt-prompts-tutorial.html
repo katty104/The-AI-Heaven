@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Why Prompt Engineering Matters | The AI Heaven</title>
     <meta name="description" content="Learn how prompt engineering unlocks AI's potential - techniques for ChatGPT and beyond">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --primary: #6e48aa;
@@ -38,20 +37,24 @@
             background: var(--bg);
             transition: background 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
         }
 
         .header {
             background: var(--bg);
-            padding: 1rem 0;
+            padding: 1rem 15px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 100%;
             padding: 0 15px;
         }
 
@@ -67,6 +70,7 @@
             text-decoration: none;
             color: var(--primary);
             font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .theme-toggle button {
@@ -79,9 +83,12 @@
         }
 
         .breadcrumb {
-            padding: 1rem 0;
-            font-size: 0.9rem;
+            padding: 1rem 15px;
+            font-size: 0.85rem;
             color: var(--text-light);
+            white-space: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .breadcrumb a {
@@ -95,15 +102,18 @@
 
         .back-button {
             display: inline-block;
-            margin: 1rem 0 2rem;
-            padding: 0.7rem 1.2rem;
+            margin: 1rem 15px 2rem;
+            padding: 0.7rem 1rem;
             background: var(--bg-secondary);
             color: var(--primary);
             border: 1px solid var(--border);
             border-radius: 4px;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+            text-align: center;
         }
 
         .back-button:hover {
@@ -116,33 +126,39 @@
         }
 
         .post-container {
-            max-width: 800px;
-            margin: 2rem auto;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
             padding: 0 15px;
+            box-sizing: border-box;
         }
 
         .post-header {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
+            padding: 0 10px;
         }
 
         h1 {
             color: var(--primary);
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            line-height: 1.2;
+            line-height: 1.3;
+            padding: 0 10px;
         }
 
         h2 {
             color: var(--primary);
-            margin-top: 2.5rem;
-            font-size: 1.8rem;
+            margin-top: 2rem;
+            font-size: 1.5rem;
             line-height: 1.3;
+            padding: 0 10px;
         }
 
         h3 {
-            margin-top: 1.8rem;
-            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            padding: 0 10px;
         }
 
         .post-meta {
@@ -150,8 +166,9 @@
             margin-bottom: 1.5rem;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
+            font-size: 0.9rem;
         }
 
         .category {
@@ -159,35 +176,40 @@
             color: white;
             padding: 0.2rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .post-content {
             line-height: 1.7;
+            font-size: 1rem;
+            padding: 0 10px;
         }
 
         .post-content img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin: 2rem 0;
+            margin: 1.5rem auto;
+            display: block;
         }
 
         .highlight-box {
             background: var(--bg-secondary);
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 8px;
             margin: 1.5rem 0;
             border: 1px solid var(--border);
+            font-size: 0.95rem;
         }
 
         .cta {
-            margin-top: 2rem;
+            margin: 2rem 0;
             text-align: center;
             padding: 1rem;
             background: var(--primary-light);
             color: white;
             border-radius: 8px;
+            font-size: 0.95rem;
         }
 
         .cta a {
@@ -201,11 +223,14 @@
             padding: 1rem;
             border-radius: 8px;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            font-size: 0.85rem;
+            margin: 1rem 0;
         }
 
         code {
             font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         blockquote {
@@ -214,23 +239,34 @@
             margin: 1rem 0;
             color: var(--text-light);
             font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
         }
 
         .footer {
             background: var(--bg-secondary);
-            padding: 2rem 0;
-            margin-top: 3rem;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 0 15px;
         }
 
         .footer-col h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
             color: var(--primary);
         }
 
@@ -242,6 +278,7 @@
 
         .footer-col li {
             margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
 
         .footer-col a {
@@ -262,97 +299,124 @@
 
         .social-links a {
             color: var(--text-light);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .footer-bottom {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid var(--border);
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 0.8rem;
             align-items: center;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0 15px;
         }
 
         .footer-links {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+        .prompt-template-container {
+            margin: 1.5rem 0;
+        }
+
+        .prompt-template {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: var(--bg);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            max-width: 100%;
+        }
+
+        .prompt-template pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text);
+            line-height: 1.5;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 480px) {
+            .breadcrumb {
+                white-space: normal;
+                overflow-x: visible;
             }
             
-            h2 {
-                font-size: 1.5rem;
-                margin-top: 2rem;
+            .back-button {
+                width: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
             }
             
             .post-container {
-                padding: 0 10px;
+                max-width: 800px;
             }
             
-            .post-meta {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            body {
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
             
             h2 {
+                font-size: 1.7rem;
+            }
+            
+            h3 {
                 font-size: 1.4rem;
             }
             
             .footer-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .prompt-template pre {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
             
             .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .footer-links {
-                justify-content: center;
-            }
-            
-            .back-button {
-                width: 100%;
-                text-align: center;
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html" aria-label="Go to homepage">
-                    <i class="fas fa-robot" aria-hidden="true"></i>
-                    <span>The AI Heaven</span>
-                </a>
-            </div>
-            <div class="theme-toggle">
-                <button id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+        <div class="logo">
+            <a href="index.html" aria-label="Go to homepage">
+                <i class="fas fa-robot" aria-hidden="true"></i>
+                <span>The AI Heaven</span>
+            </a>
+        </div>
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </header>
 
@@ -372,8 +436,8 @@
                 </div>
                 <h1>🧠 Why Prompt Engineering Matters</h1>
                 <p><strong>By The AI Heaven</strong></p>
-                <div style="text-align: center; margin: 2rem 0;">
-                    <img src="prompt-illustration.jpg" alt="Prompt engineering visualized with AI assistant">
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <img src="prompt-illustration.jpg" alt="Prompt engineering visualized with AI assistant" style="max-width: 100%; height: auto;">
                 </div>
             </header>
             <div class="post-content">
@@ -459,36 +523,58 @@
                 
                 <div class="prompt-template-container">
     <div class="prompt-template">
-        <pre><code>Act as a [role or expert type].
-Your task is to [goal].
-The target audience is [audience].
-The format should be [list, paragraph, table, etc.].
-Include [tone, length, special elements].
-Context: [any background or details].</code></pre>
+        <div class="prompt-header">
+            <i class="fas fa-magic"></i>
+            <span>PROMPT TEMPLATE</span>
+        </div>
+        <pre><code>Act as a <span class="placeholder">[role or expert type]</span>.
+Your task is to <span class="placeholder">[goal]</span>.
+The target audience is <span class="placeholder">[audience]</span>.
+The format should be <span class="placeholder">[list, paragraph, table, etc.]</span>.
+Include <span class="placeholder">[tone, length, special elements]</span>.
+Context: <span class="placeholder">[any background or details]</span>.</code></pre>
     </div>
 </div>
 
 <style>
 .prompt-template-container {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .prompt-template {
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 1rem;
-    background: var(--bg);
-    overflow-x: auto;
-    max-width: 100%;
+    padding: 0;
+    background: var(--bg-secondary);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.prompt-header {
+    background: var(--primary);
+    color: white;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.prompt-header i {
+    font-size: 0.9rem;
 }
 
 .prompt-template pre {
     margin: 0;
+    padding: 1.2rem;
     white-space: pre-wrap;
     word-wrap: break-word;
     font-family: 'Roboto Mono', monospace;
     color: var(--text);
     line-height: 1.6;
+    font-size: 0.9rem;
+    background: var(--bg-secondary);
 }
 
 .prompt-template code {
@@ -498,16 +584,31 @@ Context: [any background or details].</code></pre>
     border: none;
 }
 
+.placeholder {
+    color: var(--primary-light);
+    font-style: italic;
+}
+
 @media (max-width: 768px) {
-    .prompt-template {
-        padding: 0.8rem;
+    .prompt-template pre {
+        font-size: 0.85rem;
+        padding: 1rem;
     }
     
+    .prompt-header {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 992px) {
     .prompt-template pre {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 }
 </style>
+                </div>
+
                 <blockquote>Act as a travel agent. Your task is to create a 5-day itinerary for Tokyo focused on culture, food, and nature. The target audience is budget travelers in their 20s. Format: bullet points per day. Include recommendations for cheap eats and local experiences. Context: traveling in spring.</blockquote>
 
                 <h2>🌍 Real-World Applications</h2>
