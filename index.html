@@ -405,46 +405,43 @@
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
-    <script>
-        // Auto-update copyright year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-    <script>
+<script>
     // Dark mode toggle functionality - FIXED VERSION
     document.addEventListener('DOMContentLoaded', function() {
         const themeToggle = document.getElementById('themeToggle');
-        
-        // Check for saved theme preference or use default
         let currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Apply saved theme
         document.documentElement.setAttribute('data-theme', currentTheme);
         
-        // Set initial icon based on current theme
+        // Set initial icon
         const icon = themeToggle.querySelector('i');
-        if (currentTheme === 'dark') {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
+        updateIcon(currentTheme);
         
         themeToggle.addEventListener('click', function() {
-            // Toggle between light and dark
-            currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            
-            // Apply the new theme
+            // Toggle theme
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', currentTheme);
             localStorage.setItem('theme', currentTheme);
             
             // Update icon
-            if (currentTheme === 'dark') {
+            updateIcon(currentTheme);
+        });
+        
+        function updateIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
             } else {
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
             }
-        });
+        }
     });
+
+    // Auto-update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
