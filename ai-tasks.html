@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Automate Tasks with AI | The AI Heaven</title>
+    <meta name="description" content="Learn how to use AI tools to automate repetitive tasks and boost productivity - no coding required">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #6e48aa;
@@ -14,198 +18,693 @@
             --bg-secondary: #f7fafc;
             --border: #e2e8f0;
         }
-        
+        [data-theme="dark"] {
+            --primary: #8a63d2;
+            --text: #f7fafc;
+            --text-light: #cbd5e0;
+            --bg: #1a202c;
+            --bg-secondary: #2d3748;
+            --border: #4a5568;
+        }
+
         body {
+            margin: 0;
+            padding: 0;
             font-family: 'Inter', sans-serif;
+            font-size: 16px;
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
         }
-        
-        h1, h2, h3 {
+
+        .header {
+            background: var(--bg);
+            padding: 1rem 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
             color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
-        
-        blockquote {
-            border-left: 4px solid var(--primary);
-            padding-left: 1rem;
-            margin: 1.5rem 0;
-            color: var(--text-light);
-            font-style: italic;
+
+        .theme-toggle button {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text);
+            padding: 0.5rem;
         }
-        
-        .meta {
+
+        .breadcrumb {
+            padding: 1rem 15px;
+            font-size: 0.85rem;
             color: var(--text-light);
+            white-space: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 1rem 15px 2rem;
+            padding: 0.7rem 1rem;
+            background: var(--bg-secondary);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .back-button i {
+            margin-right: 5px;
+        }
+
+        .post-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .post-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+
+        h3 {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            padding: 0 10px;
+        }
+
+        .post-meta {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
             font-size: 0.9rem;
-            margin-bottom: 2rem;
         }
-        
+
+        .category {
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .post-content {
+            line-height: 1.7;
+            font-size: 1rem;
+            padding: 0 10px;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem auto;
+            display: block;
+        }
+
         .highlight-box {
             background: var(--bg-secondary);
             padding: 1.2rem;
             border-radius: 8px;
             margin: 1.5rem 0;
             border: 1px solid var(--border);
+            font-size: 0.95rem;
         }
-        
-        ul, ol {
-            padding-left: 1.5rem;
+
+        .cta {
+            margin: 2rem 0;
+            text-align: center;
+            padding: 1rem;
+            background: var(--primary-light);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.95rem;
         }
-        
-        li {
-            margin-bottom: 0.5rem;
+
+        .cta a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: underline;
         }
-        
-        .prompt-template {
+
+        pre {
             background: var(--bg-secondary);
             padding: 1rem;
             border-radius: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+
+        code {
             font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: var(--bg-secondary);
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 0 15px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .prompt-template-container {
             margin: 1.5rem 0;
         }
-        
+
+        .prompt-template {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .prompt-header {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prompt-header i {
+            font-size: 0.9rem;
+        }
+
+        .prompt-template pre {
+            margin: 0;
+            padding: 1.2rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+        }
+
+        .placeholder {
+            color: var(--primary-light);
+            font-style: italic;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .example-label {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
         .faq-item {
             margin-bottom: 1.5rem;
         }
-        
+
         .faq-question {
             font-weight: bold;
             color: var(--primary);
         }
+
+        @media (min-width: 480px) {
+            .breadcrumb {
+                white-space: normal;
+                overflow-x: visible;
+            }
+            
+            .back-button {
+                width: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .post-container {
+                max-width: 800px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .prompt-template pre {
+                font-size: 0.9rem;
+            }
+            
+            .example-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <article>
-        <h1>⚙️ Automate Tasks with AI: Boost Your Productivity with Smart Tools</h1>
-        <div class="meta">
-            <strong>By The AI Heaven</strong><br>
-            Estimated reading time: 15 minutes
+    <header class="header">
+        <div class="logo">
+            <a href="index.html" aria-label="Go to homepage">
+                <i class="fas fa-robot" aria-hidden="true"></i>
+                <span>The AI Heaven</span>
+            </a>
         </div>
-        
-        <blockquote>
-            Ever feel like you spend more time copying, pasting, replying, or organizing than actually thinking or creating? AI automation can help you reclaim those hours. This tutorial walks you through how to use AI tools to automate repetitive tasks — no coding required.
-        </blockquote>
-        
-        <h2>🤖 What Does "Automating with AI" Mean?</h2>
-        <p>AI automation refers to using intelligent tools to handle tasks you'd normally do manually — like writing emails, categorizing info, organizing documents, responding to questions, generating content, and more.</p>
-        <p>Unlike traditional automation (like macros or scripts), AI automation adapts. It understands context, learns patterns, and handles messy inputs — like poorly written emails or scattered notes.</p>
-        
-        <h2>💼 What Can You Automate with AI?</h2>
-        <p>Here are common use cases:</p>
-        <ul>
-            <li><strong>Emails:</strong> Draft replies, sort messages, summarize threads</li>
-            <li><strong>Content Creation:</strong> Auto-generate blog drafts, product descriptions, ad copy</li>
-            <li><strong>Customer Support:</strong> Respond to FAQs or support tickets automatically</li>
-            <li><strong>Scheduling & Planning:</strong> Extract tasks and dates from text or messages</li>
-            <li><strong>Data Entry & Categorization:</strong> Sort entries, tag items, format spreadsheets</li>
-            <li><strong>Social Media:</strong> Schedule posts, write captions, repurpose content</li>
-        </ul>
-        <p>If a task involves text, repetition, or structure — AI can probably help.</p>
-        
-        <h2>🧠 Tools You Can Use (No Code Needed)</h2>
-        <p>Here are beginner-friendly tools that work right out of the box:</p>
-        
-        <h3>1. <strong>Zapier + ChatGPT</strong></h3>
-        <ul>
-            <li>Trigger: New email → Action: Ask ChatGPT to summarize or reply</li>
-            <li>Trigger: New form submission → Action: Auto-generate a report</li>
-        </ul>
-        
-        <h3>2. <strong>Notion AI</strong></h3>
-        <ul>
-            <li>Use AI blocks to summarize meeting notes, extract tasks, rewrite content</li>
-            <li>Great for internal team use or personal organization</li>
-        </ul>
-        
-        <h3>3. <strong>ChatGPT Custom GPTs</strong></h3>
-        <ul>
-            <li>Create your own bots with predefined behavior and use them for repeated tasks like rewriting, converting formats, etc.</li>
-        </ul>
-        
-        <h3>4. <strong>Google Sheets + GPT API</strong></h3>
-        <ul>
-            <li>Use formulas to auto-fill content like product ideas, tags, summaries</li>
-        </ul>
-        
-        <h3>5. <strong>Taskade, Motion, or Tana</strong></h3>
-        <ul>
-            <li>AI features in modern productivity apps that assist with organizing and planning</li>
-        </ul>
-        
-        <h2>✍️ Real Example: Automate Meeting Summaries</h2>
-        <h3>The problem:</h3>
-        <p>You attend weekly meetings and take notes, but rewriting summaries is time-consuming.</p>
-        
-        <h3>The AI Solution:</h3>
-        <ol>
-            <li>Paste meeting notes into Notion or ChatGPT.</li>
-            <li>Ask: "Summarize the key points and list the next action steps."</li>
-            <li>Done. Copy/paste the summary into your doc, or automate with Zapier/Notion.</li>
-        </ol>
-        <p>This saves ~30–60 minutes per week.</p>
-        
-        <h2>🔁 Create a Workflow with Zapier + ChatGPT</h2>
-        <p>Here's a simple automation you can build:</p>
-        <p><strong>Goal:</strong> Automatically summarize new Gmail threads</p>
-        <ol>
-            <li>Create a Zap:
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="post-container">
+        <div class="breadcrumb">Home > Tutorials > Productivity</div>
+
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <article class="post">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="category">Tutorial</span>
+                    <span class="date">May 2025</span>
+                    <span class="read-time">15 min read</span>
+                </div>
+                <h1>⚙️ Automate Tasks with AI: Boost Your Productivity with Smart Tools</h1>
+                <p><strong>By The AI Heaven</strong></p>
+            </header>
+            <div class="post-content">
+                <blockquote>
+                    Ever feel like you spend more time copying, pasting, replying, or organizing than actually thinking or creating? AI automation can help you reclaim those hours. This tutorial walks you through how to use AI tools to automate repetitive tasks — no coding required.
+                </blockquote>
+
+                <h2>🤖 What Does "Automating with AI" Mean?</h2>
+                <p>AI automation refers to using intelligent tools to handle tasks you'd normally do manually — like writing emails, categorizing info, organizing documents, responding to questions, generating content, and more.</p>
+                <p>Unlike traditional automation (like macros or scripts), AI automation adapts. It understands context, learns patterns, and handles messy inputs — like poorly written emails or scattered notes.</p>
+                
+                <h2>💼 What Can You Automate with AI?</h2>
+                <p>Here are common use cases:</p>
                 <ul>
-                    <li><strong>Trigger:</strong> New email in Gmail</li>
-                    <li><strong>Action:</strong> Send body to ChatGPT</li>
-                    <li><strong>Action:</strong> Save response to Google Docs or Notion</li>
+                    <li><strong>Emails:</strong> Draft replies, sort messages, summarize threads</li>
+                    <li><strong>Content Creation:</strong> Auto-generate blog drafts, product descriptions, ad copy</li>
+                    <li><strong>Customer Support:</strong> Respond to FAQs or support tickets automatically</li>
+                    <li><strong>Scheduling & Planning:</strong> Extract tasks and dates from text or messages</li>
+                    <li><strong>Data Entry & Categorization:</strong> Sort entries, tag items, format spreadsheets</li>
+                    <li><strong>Social Media:</strong> Schedule posts, write captions, repurpose content</li>
                 </ul>
-            </li>
-            <li>Optional: Add a Slack or Telegram notification</li>
-        </ol>
-        <p>🎯 Result: You check Slack and see: "Summary: Project A is delayed, next steps outlined."</p>
-        
-        <h2>✨ Tips to Maximize AI Automation</h2>
-        <ul>
-            <li>Be specific in your prompts</li>
-            <li>Use templates for recurring tasks (e.g., blog outlines, emails)</li>
-            <li>Combine tools (Zapier, Notion, Sheets, ChatGPT) for smoother flows</li>
-            <li>Always test with real data</li>
-            <li>Review AI output before publishing or sending</li>
-        </ul>
-        
-        <h2>📋 Prompt Template: General Task Automation</h2>
-        <div class="prompt-template">
-            Act as a productivity assistant. Your task is to [summarize / extract tasks / rewrite / categorize / generate ideas].<br>
-            Context: [Paste your input or description].<br>
-            Format: [bullet points / short summary / table / steps].<br>
-            Tone: [professional / friendly / neutral].
+                <p>If a task involves text, repetition, or structure — AI can probably help.</p>
+                
+                <h2>🧠 Tools You Can Use (No Code Needed)</h2>
+                <p>Here are beginner-friendly tools that work right out of the box:</p>
+                
+                <div class="example-grid">
+                    <div class="example-item">
+                        <div class="example-label">1. Zapier + ChatGPT</div>
+                        <ul>
+                            <li>Trigger: New email → Action: Ask ChatGPT to summarize or reply</li>
+                            <li>Trigger: New form submission → Action: Auto-generate a report</li>
+                        </ul>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">2. Notion AI</div>
+                        <ul>
+                            <li>Use AI blocks to summarize meeting notes, extract tasks, rewrite content</li>
+                            <li>Great for internal team use or personal organization</li>
+                        </ul>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">3. ChatGPT Custom GPTs</div>
+                        <ul>
+                            <li>Create your own bots with predefined behavior for repeated tasks</li>
+                        </ul>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">4. Google Sheets + GPT API</div>
+                        <ul>
+                            <li>Use formulas to auto-fill content like product ideas, tags, summaries</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>✍️ Real Example: Automate Meeting Summaries</h2>
+                <h3>The problem:</h3>
+                <p>You attend weekly meetings and take notes, but rewriting summaries is time-consuming.</p>
+                
+                <h3>The AI Solution:</h3>
+                <ol>
+                    <li>Paste meeting notes into Notion or ChatGPT.</li>
+                    <li>Ask: "Summarize the key points and list the next action steps."</li>
+                    <li>Done. Copy/paste the summary into your doc, or automate with Zapier/Notion.</li>
+                </ol>
+                <p>This saves ~30–60 minutes per week.</p>
+                
+                <h2>🔁 Create a Workflow with Zapier + ChatGPT</h2>
+                <p>Here's a simple automation you can build:</p>
+                <p><strong>Goal:</strong> Automatically summarize new Gmail threads</p>
+                <ol>
+                    <li>Create a Zap:
+                        <ul>
+                            <li><strong>Trigger:</strong> New email in Gmail</li>
+                            <li><strong>Action:</strong> Send body to ChatGPT</li>
+                            <li><strong>Action:</strong> Save response to Google Docs or Notion</li>
+                        </ul>
+                    </li>
+                    <li>Optional: Add a Slack or Telegram notification</li>
+                </ol>
+                <p>🎯 Result: You check Slack and see: "Summary: Project A is delayed, next steps outlined."</p>
+                
+                <h2>✨ Tips to Maximize AI Automation</h2>
+                <ul>
+                    <li>Be specific in your prompts</li>
+                    <li>Use templates for recurring tasks (e.g., blog outlines, emails)</li>
+                    <li>Combine tools (Zapier, Notion, Sheets, ChatGPT) for smoother flows</li>
+                    <li>Always test with real data</li>
+                    <li>Review AI output before publishing or sending</li>
+                </ul>
+                
+                <h2>📋 Prompt Template: General Task Automation</h2>
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <div class="prompt-header">
+                            <i class="fas fa-magic"></i>
+                            <span>PROMPT TEMPLATE</span>
+                        </div>
+                        <pre><code>Act as a productivity assistant. Your task is to <span class="placeholder">[summarize / extract tasks / rewrite / categorize / generate ideas]</span>.
+Context: <span class="placeholder">[Paste your input or description]</span>.
+Format: <span class="placeholder">[bullet points / short summary / table / steps]</span>.
+Tone: <span class="placeholder">[professional / friendly / neutral]</span>.</code></pre>
+                    </div>
+                </div>
+
+                <h2>⚠️ Common Pitfalls to Avoid</h2>
+                <div class="highlight-box">
+                    <ul>
+                        <li><strong>Relying 100% on automation</strong> — always double-check important work</li>
+                        <li><strong>Vague prompts</strong> — give the AI clear instructions</li>
+                        <li><strong>Overcomplicating too soon</strong> — start small, automate one thing well</li>
+                    </ul>
+                </div>
+                
+                <h2>💬 FAQ</h2>
+                <div class="highlight-box">
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Do I need to know how to code?</div>
+                        <p>A: No. Most tools like Zapier, Notion, and ChatGPT require zero programming.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Will AI replace my job?</div>
+                        <p>A: Not if you learn to use it. AI helps you work faster and focus on higher-value tasks.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Can I trust the AI's output?</div>
+                        <p>A: Treat AI as a helper, not a decision-maker. Always review important results.</p>
+                    </div>
+                </div>
+                
+                <h2>🎁 Final Thoughts</h2>
+                <p>Automating tasks with AI isn't about replacing your work — it's about removing the friction. When you automate the boring parts, you free up time to think, create, and grow.</p>
+                <p>Start with something simple today — even summarizing your next email — and watch the time add up.</p>
+
+                <div class="cta">
+                    <p><a href="#">Subscribe</a> to The AI Heaven for more tutorials, automation ideas, and productivity tips.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The AI Heaven</h3>
+                    <p>Your comprehensive resource for learning about artificial intelligence and how to use AI tools effectively.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#tutorials">Tutorials</a></li>
+                        <li><a href="index.html#articles">Articles</a></li>
+                        <li><a href="index.html#tools">AI Tools</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Beginner's Guide</a></li>
+                        <li><a href="#">AI Glossary</a></li>
+                        <li><a href="#">Tool Comparisons</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@aiheaven.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> The AI Heaven. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
         </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         
-        <h2>⚠️ Common Pitfalls to Avoid</h2>
-        <ul>
-            <li>❌ Relying 100% on automation — always double-check important work</li>
-            <li>❌ Vague prompts — give the AI clear instructions</li>
-            <li>❌ Overcomplicating too soon — start small, automate one thing well</li>
-        </ul>
-        
-        <h2>💬 FAQ</h2>
-        <div class="faq-item">
-            <div class="faq-question">Q: Do I need to know how to code?</div>
-            <p>A: No. Most tools like Zapier, Notion, and ChatGPT require zero programming.</p>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">Q: Will AI replace my job?</div>
-            <p>A: Not if you learn to use it. AI helps you work faster and focus on higher-value tasks.</p>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">Q: Can I trust the AI's output?</div>
-            <p>A: Treat AI as a helper, not a decision-maker. Always review important results.</p>
-        </div>
-        
-        <h2>🎁 Final Thoughts</h2>
-        <p>Automating tasks with AI isn't about replacing your work — it's about removing the friction. When you automate the boring parts, you free up time to think, create, and grow.</p>
-        <p>Start with something simple today — even summarizing your next email — and watch the time add up.</p>
-    </article>
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
