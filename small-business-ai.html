@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>How Small Businesses Can Leverage AI | The AI Heaven</title>
+    <meta name="description" content="Practical guide showing how small businesses can use AI to save time, cut costs, and compete with larger companies">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --primary-light: #9d50bb;
+            --text: #2d3748;
+            --text-light: #4a5568;
+            --bg: #ffffff;
+            --bg-secondary: #f7fafc;
+            --border: #e2e8f0;
+        }
+        [data-theme="dark"] {
+            --primary: #8a63d2;
+            --text: #f7fafc;
+            --text-light: #cbd5e0;
+            --bg: #1a202c;
+            --bg-secondary: #2d3748;
+            --border: #4a5568;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .header {
+            background: var(--bg);
+            padding: 1rem 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle button {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text);
+            padding: 0.5rem;
+        }
+
+        .breadcrumb {
+            padding: 1rem 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            white-space: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 1rem 15px 2rem;
+            padding: 0.7rem 1rem;
+            background: var(--bg-secondary);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .back-button i {
+            margin-right: 5px;
+        }
+
+        .post-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .post-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+
+        h3 {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            padding: 0 10px;
+        }
+
+        .post-meta {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .category {
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .post-content {
+            line-height: 1.7;
+            font-size: 1rem;
+            padding: 0 10px;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem auto;
+            display: block;
+        }
+
+        .highlight-box {
+            background: var(--bg-secondary);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .cta {
+            margin: 2rem 0;
+            text-align: center;
+            padding: 1rem;
+            background: var(--primary-light);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .cta a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        pre {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: var(--bg-secondary);
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 0 15px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .prompt-template-container {
+            margin: 1.5rem 0;
+        }
+
+        .prompt-template {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: var(--bg);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            max-width: 100%;
+        }
+
+        .prompt-template pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text);
+            line-height: 1.5;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 480px) {
+            .breadcrumb {
+                white-space: normal;
+                overflow-x: visible;
+            }
+            
+            .back-button {
+                width: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .post-container {
+                max-width: 800px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .prompt-template pre {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        .prompt-template-container {
+            margin: 1.5rem 0;
+        }
+
+        .prompt-template {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .prompt-header {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prompt-header i {
+            font-size: 0.9rem;
+        }
+
+        .prompt-template pre {
+            margin: 0;
+            padding: 1.2rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+        }
+
+        .prompt-template code {
+            display: block;
+            padding: 0;
+            background: transparent;
+            border: none;
+        }
+
+        .placeholder {
+            color: var(--primary-light);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .prompt-template pre {
+                font-size: 0.85rem;
+                padding: 1rem;
+            }
+            
+            .prompt-header {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .prompt-template pre {
+                font-size: 0.95rem;
+            }
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .example-label {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .example-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .card-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 10px;
+        }
+        
+        .card-content h3 {
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        
+        .card-content p {
+            flex: 1;
+            min-width: 100%;
+            margin-bottom: 0;
+        }
+        
+        .btn-secondary {
+            margin-left: auto;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html" aria-label="Go to homepage">
+                <i class="fas fa-robot" aria-hidden="true"></i>
+                <span>The AI Heaven</span>
+            </a>
+        </div>
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="post-container">
+        <div class="breadcrumb">Home > Business > AI for SMB</div>
+
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <article class="post">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="category">Guide</span>
+                    <span class="date">May 2025</span>
+                    <span class="read-time">15 min read</span>
+                </div>
+                <h1>💼 How Small Businesses Can Leverage AI: A Practical Guide</h1>
+                <p><strong>By The AI Heaven</strong></p>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <img src="small-business-ai-cover.jpg" loading="lazy" alt="Small business owner using AI tools" width="1200" height="630" style="max-width: 100%; height: auto;">
+                </div>
+            </header>
+            <div class="post-content">
+                <blockquote>What if your small business could afford a marketing team, an assistant, a data analyst, and a 24/7 customer support agent — all at once? Thanks to AI, that's no longer a fantasy. In this guide, we'll explore how small and medium enterprises (SMEs) can use AI to save time, cut costs, and stay competitive.</blockquote>
+
+                <h2>🚀 Why AI Isn't Just for Big Tech Anymore</h2>
+                <p>AI tools used to be expensive and complex. Today, thanks to accessible platforms like ChatGPT, Canva, Notion AI, and Zapier, even solo entrepreneurs can automate workflows, improve customer experience, and make smarter decisions.</p>
+                
+                <p>AI is now:</p>
+                <ul>
+                    <li><strong>Affordable</strong> (many tools are free or low-cost)</li>
+                    <li><strong>Easy to integrate</strong> (no coding needed)</li>
+                    <li><strong>Designed for non-experts</strong></li>
+                </ul>
+                
+                <p>If you're running a small business, AI can give you leverage without needing to scale your team.</p>
+
+                <h2>🔍 Key Areas Where Small Businesses Can Use AI</h2>
+
+                <h3>1. Customer Support</h3>
+                <ul>
+                    <li>Use AI chatbots (like Intercom or Tidio) to respond to FAQs 24/7</li>
+                    <li>Use GPT-based tools to draft replies to customer messages</li>
+                    <li>Automatically route messages to the right person</li>
+                </ul>
+
+                <h3>2. Marketing and Content Creation</h3>
+                <ul>
+                    <li>Generate social media posts with tools like Jasper, Copy.ai or ChatGPT</li>
+                    <li>Create images with DALL·E or Midjourney for brand visuals</li>
+                    <li>Repurpose blog content into newsletters or Instagram carousels</li>
+                </ul>
+
+                <h3>3. Sales and Lead Generation</h3>
+                <ul>
+                    <li>Use chatbots to qualify leads automatically</li>
+                    <li>Set up workflows to follow up via email using tools like HubSpot + GPT</li>
+                    <li>Analyze customer behavior to personalize offers</li>
+                </ul>
+
+                <h3>4. Admin and Workflow Automation</h3>
+                <ul>
+                    <li>Automate invoices and task reminders with Zapier or Make</li>
+                    <li>Extract data from emails and input it into spreadsheets</li>
+                    <li>Summarize meeting notes with Notion AI or Fireflies</li>
+                </ul>
+
+                <h3>5. Data and Insights</h3>
+                <ul>
+                    <li>Use AI to identify patterns in customer reviews</li>
+                    <li>Forecast sales trends based on past behavior</li>
+                    <li>Run simple data queries in natural language</li>
+                </ul>
+
+                <h2>🧠 Case Study 1: How a Local Clothing Store Uses AI</h2>
+                <div class="highlight-box">
+                    <p>María owns a boutique clothing store with just two employees. Here's how she uses AI:</p>
+                    <ul>
+                        <li>🛍️ ChatGPT writes product descriptions and ad copy.</li>
+                        <li>🧾 Zapier sends new Shopify orders to Google Sheets for accounting.</li>
+                        <li>📩 Mailchimp + AI generates personalized follow-up emails for new customers.</li>
+                        <li>📸 Canva's Magic Write helps with social media captions.</li>
+                        <li>🤖 A chatbot on her website answers size and return policy questions.</li>
+                    </ul>
+                    <p><strong>Result:</strong> Sales grew 18% in 6 months, and she spends 30% less time doing admin work.</p>
+                </div>
+
+                <h2>📊 Case Study 2: A Solo Online Coach with Smart Workflows</h2>
+                <div class="highlight-box">
+                    <p>Daniel is a productivity coach who runs courses online. He uses AI to:</p>
+                    <ul>
+                        <li>🎙️ Transcribe and summarize his coaching calls with Otter.ai</li>
+                        <li>🧠 Generate blog posts and lesson summaries with ChatGPT</li>
+                        <li>🗂️ Organize notes and tasks in Notion AI</li>
+                        <li>📅 Automate scheduling and follow-ups using Calendly + Zapier</li>
+                    </ul>
+                    <p><strong>Result:</strong> Now, he spends more time coaching and less time doing repetitive admin.</p>
+                </div>
+
+                <h2>🛠️ Tool Stack Examples (No Code Needed)</h2>
+                <div class="example-grid">
+                    <div class="example-item">
+                        <div class="example-label">Content & Writing</div>
+                        <ul>
+                            <li><strong>ChatGPT or Claude</strong> — content, emails, planning</li>
+                            <li><strong>Notion AI</strong> — summarizing info, extracting tasks</li>
+                            <li><strong>Canva + Magic Write</strong> — social graphics and captions</li>
+                        </ul>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">Automation</div>
+                        <ul>
+                            <li><strong>Zapier</strong> — automating workflows</li>
+                            <li><strong>Make</strong> — more advanced automation</li>
+                            <li><strong>Calendly</strong> — smart scheduling</li>
+                        </ul>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">Customer Support</div>
+                        <ul>
+                            <li><strong>Tidio / Crisp</strong> — smart chatbots</li>
+                            <li><strong>Intercom</strong> — live support + AI</li>
+                        </ul>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">Media & Content</div>
+                        <ul>
+                            <li><strong>Pictory / Lumen5</strong> — turn blogs into videos</li>
+                            <li><strong>DALL·E / Midjourney</strong> — create images</li>
+                            <li><strong>Descript</strong> — edit videos with AI</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p>These tools are beginner-friendly and budget-friendly.</p>
+
+                <h2>✍️ Mini Tutorial: Automate Review Collection and Summary</h2>
+                <p>Let's say you want to analyze customer feedback without reading every review.</p>
+
+                <h3>Step-by-step:</h3>
+                <ol>
+                    <li>Set up a Google Form for customer reviews.</li>
+                    <li>Use Zapier to send new responses to a Google Sheet.</li>
+                    <li>Use ChatGPT or GPT for Sheets to summarize comments weekly.</li>
+                    <li>Optionally, generate social proof quotes for your site or socials.</li>
+                </ol>
+
+                <p>🧠 <em>Bonus: You can also use AI to categorize reviews by theme or sentiment.</em></p>
+
+                <h2>✅ Tips for Getting Started</h2>
+                <ul>
+                    <li>Don't try to automate everything at once — start with one pain point.</li>
+                    <li>Choose tools that integrate with what you already use.</li>
+                    <li>Write clear prompts — the better your instructions, the better the output.</li>
+                    <li>Use templates to speed up repetitive tasks.</li>
+                    <li>Review AI output — it's a smart assistant, not a perfect one.</li>
+                </ul>
+
+                <h2>⚠️ Common Pitfalls to Avoid</h2>
+                <div class="highlight-box">
+                    <ul>
+                        <li>❌ Relying fully on AI without human review</li>
+                        <li>❌ Ignoring local data privacy laws (especially for client data)</li>
+                        <li>❌ Trying 10 tools at once — start with 2–3 solid ones</li>
+                        <li>❌ Forgetting to train your team on the new process</li>
+                    </ul>
+                </div>
+
+                <h2>❓ FAQ: AI for Small Business Owners</h2>
+                <div class="highlight-box">
+                    <p><strong>Q: Do I need to know how to code?</strong><br>
+                    A: No. Most tools are drag-and-drop or text-based.</p>
+                    
+                    <p><strong>Q: Is AI expensive?</strong><br>
+                    A: Many tools offer free plans. Even paid ones are often cheaper than hiring a full-time assistant.</p>
+                    
+                    <p><strong>Q: Will my customers know I use AI?</strong><br>
+                    A: Only if you want them to. Use AI behind the scenes or let them know you're using it to serve them better.</p>
+                    
+                    <p><strong>Q: What if I work in a very specific niche?</strong><br>
+                    A: That's where AI shines. You can customize prompts and workflows to match your voice, product, and customer language.</p>
+                </div>
+
+                <h2>🎓 Resources for Going Further</h2>
+                <ul>
+                    <li><a href="https://zapier.com/learn/automation/" target="_blank">Zapier University</a> — automation guides for beginners</li>
+                    <li><a href="https://www.notion.so/templates" target="_blank">Notion AI Templates</a> — prebuilt workspaces</li>
+                    <li><a href="https://platform.openai.com/docs/guides/gpt" target="_blank">OpenAI Prompt Guide</a> — learn how to write better prompts</li>
+                    <li><a href="#" target="_blank">Small Business AI Newsletter</a> — curated tools and trends</li>
+                </ul>
+
+                <h2>📘 Final Thoughts</h2>
+                <p>Small businesses don't need to "catch up" to big tech — they can leap ahead by adopting AI early.</p>
+                
+                <p>With the right tools and mindset, even the smallest team can:</p>
+                <ul>
+                    <li>Look more professional</li>
+                    <li>Save hours per week</li>
+                    <li>Improve customer satisfaction</li>
+                    <li>Compete with bigger players — without the overhead</li>
+                </ul>
+
+                <p>✨ <em>AI is your competitive edge. Use it to build smarter, not just harder.</em></p>
+
+                <div class="cta">
+                    <p><a href="#">Subscribe</a> to The AI Heaven for more small business AI strategies and practical guides.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>The AI Heaven</h3>
+                    <p>Your comprehensive resource for learning about artificial intelligence and how to use AI tools effectively.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#tutorials">Tutorials</a></li>
+                        <li><a href="index.html#articles">Articles</a></li>
+                        <li><a href="index.html#tools">AI Tools</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Beginner's Guide</a></li>
+                        <li><a href="#">AI Glossary</a></li>
+                        <li><a href="#">Tool Comparisons</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@aiheaven.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> The AI Heaven. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
