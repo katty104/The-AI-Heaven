@@ -16,11 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .article-card {
-    flex: 1 1 0;
-    width: 0; /* Makes flex items truly equal width */
-}
-        /* Add this CSS to fix your layout */
+        /* Card Layout Styles */
         .card {
             display: flex;
             flex-direction: column;
@@ -42,32 +38,87 @@
             align-self: flex-start;
             margin-top: auto;
         }
+
+        /* Article List Styles */
         .article-list {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    .article-card {
-        flex: 1;
-        min-width: 300px;
-        max-width: 100%;
-    }
-    
-    @media (max-width: 768px) {
-        .article-list {
-            flex-direction: column;
-            gap: 1.5rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: space-between;
+            flex-wrap: nowrap;
         }
         
         .article-card {
-            min-width: 100%;
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-    }
+        
+        .article-card h3,
+        .article-card p {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .read-more {
+            margin-top: auto;
+            color: #9f6fe8;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 1024px) {
+            .article-list {
+                flex-wrap: wrap;
+            }
+            
+            .article-card {
+                min-width: calc(50% - 1rem);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .article-list {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .article-card {
+                min-width: 100%;
+            }
+        }
+
+        /* About Section Image Fix */
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 12px;
+        }
     </style>
 </head>
-    <!-- Cookie Banner for The AI Heaven -->
+
+<!-- Cookie Banner for The AI Heaven -->
 <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: rgba(40, 40, 50, 0.95); color: #fff; padding: 1rem; font-family: 'Inter', sans-serif; text-align: center; z-index: 9999; display: none; box-shadow: 0 -2px 10px rgba(0,0,0,0.4);">
   <span style="font-size: 0.95rem;">We use cookies to improve your experience on The AI Heaven. <a href="/cookies.html" style="color: #cfc; text-decoration: underline;">Learn more</a>.</span>
   <button onclick="acceptCookies()" style="margin-left: 1rem; padding: 0.4rem 1rem; background: #9f6fe8; border: none; border-radius: 6px; color: white; font-weight: 500; cursor: pointer;">Accept</button>
@@ -182,44 +233,46 @@
                     </article>
                 </div>
             </div>
-      <section id="articles" class="section articles">
-    <div class="container">
-        <h2 class="section-title">Featured Articles</h2>
-        <p class="section-subtitle">Insights and analysis on AI developments</p>
-        
-        <div class="article-list">
-            <article class="article-card">
-                <div class="article-meta">
-                    <span class="category">Trends</span>
-                    <span class="date">May 2025</span>
+        </section>
+
+        <section id="articles" class="section articles">
+            <div class="container">
+                <h2 class="section-title">Featured Articles</h2>
+                <p class="section-subtitle">Insights and analysis on AI developments</p>
+                
+                <div class="article-list">
+                    <article class="article-card">
+                        <div class="article-meta">
+                            <span class="category">Trends</span>
+                            <span class="date">May 2025</span>
+                        </div>
+                        <h3>The Future of AI in Education</h3>
+                        <p>How artificial intelligence is transforming learning experiences and what it means for students and educators worldwide...</p>
+                        <a href="ai-education-future.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-meta">
+                            <span class="category">Ethics</span>
+                            <span class="date">May 2025</span>
+                        </div>
+                        <h3>Ethical Considerations in AI Development</h3>
+                        <p>Exploring the moral implications of AI advancements and the responsibility of developers to create ethical systems...</p>
+                        <a href="ethical-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-meta">
+                            <span class="category">Business</span>
+                            <span class="date">May 2025</span>
+                        </div>
+                        <h3>How Small Businesses Can Leverage AI</h3>
+                        <p>Practical ways small and medium enterprises can implement AI tools to improve operations and customer experiences...</p>
+                        <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </article>
                 </div>
-                <h3>The Future of AI in Education</h3>
-                <p>How artificial intelligence is transforming learning experiences and what it means for students and educators worldwide...</p>
-                <a href="ai-education-future.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-            </article>
-            
-            <article class="article-card">
-                <div class="article-meta">
-                    <span class="category">Ethics</span>
-                    <span class="date">May 2025</span>
-                </div>
-                <h3>Ethical Considerations in AI Development</h3>
-                <p>Exploring the moral implications of AI advancements and the responsibility of developers to create ethical systems...</p>
-                <a href="ethical-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-            </article>
-            
-            <article class="article-card">
-                <div class="article-meta">
-                    <span class="category">Business</span>
-                    <span class="date">May 2025</span>
-                </div>
-                <h3>How Small Businesses Can Leverage AI</h3>
-                <p>Practical ways small and medium enterprises can implement AI tools to improve operations and customer experiences...</p>
-                <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-            </article>
-        </div>
-    </div>
-</section>
+            </div>
+        </section>
 
         <section id="tools" class="section tools">
             <div class="container">
@@ -251,7 +304,6 @@
                         </div>
                         <h3>GitHub Copilot</h3>
                         <p>AI coding assistant that helps you write better code, fix bugs and stay productive.</p>
-                        
                         <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
                     </div>
                     
@@ -268,22 +320,21 @@
         </section>
 
         <section id="about" class="section about">
-    <div class="container">
-        <div class="about-content">
-            <h2 class="section-title">About The AI Heaven</h2>
-            <p>The AI Heaven was founded in <strong>2025</strong> with the mission to democratize knowledge about artificial intelligence. We believe that AI should be accessible to everyone, not just researchers and tech giants.</p>
-            <p>Our team of AI enthusiasts, developers, and educators work together to create high-quality, easy-to-understand content that helps people understand and utilize AI tools effectively.</p>
-            <p>Whether you're a complete beginner or an experienced professional, you'll find valuable resources here to expand your AI knowledge.</p>
-        </div>
-        <div class="about-image" style="text-align: center; margin-top: 40px;">
-            <img src="aiheaven.jpg" 
-                 alt="The AI Heaven team working together" 
-                 style="max-width: 100%; height: auto; border-radius: 12px;"
-                 width="1200"
-                 height="630">
-        </div>
-    </div>
-</section>
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title">About The AI Heaven</h2>
+                    <p>The AI Heaven was founded in <strong>2025</strong> with the mission to democratize knowledge about artificial intelligence. We believe that AI should be accessible to everyone, not just researchers and tech giants.</p>
+                    <p>Our team of AI enthusiasts, developers, and educators work together to create high-quality, easy-to-understand content that helps people understand and utilize AI tools effectively.</p>
+                    <p>Whether you're a complete beginner or an experienced professional, you'll find valuable resources here to expand your AI knowledge.</p>
+                </div>
+                <div class="about-image">
+                    <img src="aiheaven.jpg" 
+                         alt="The AI Heaven team working together" 
+                         width="1200"
+                         height="630">
+                </div>
+            </div>
+        </section>
         
         <section class="newsletter">
             <div class="container">
@@ -355,7 +406,7 @@
     <script src="script.js"></script>
     <script>
         // Auto-update copyright year
-        document.getElementById(2025).textContent = new Date().getFullYear(2025);
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
