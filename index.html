@@ -38,6 +38,29 @@
             align-self: flex-start;
             margin-top: auto;
         }
+        .article-list {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .article-card {
+        flex: 1;
+        min-width: 300px;
+        max-width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+        .article-list {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .article-card {
+            min-width: 100%;
+        }
+    }
     </style>
 </head>
     <!-- Cookie Banner for The AI Heaven -->
@@ -155,46 +178,44 @@
                     </article>
                 </div>
             </div>
-        </section>
-
-        <section id="articles" class="section articles">
-            <div class="container">
-                <h2 class="section-title">Featured Articles</h2>
-                <p class="section-subtitle">Insights and analysis on AI developments</p>
-                
-                <div class="article-list">
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="category">Trends</span>
-                            <span class="date">May 2025</span>
-                        </div>
-                        <h3>The Future of AI in Education</h3>
-                        <p>How artificial intelligence is transforming learning experiences and what it means for students and educators worldwide...</p>
-                        <a href="ai-education-future.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                    
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="category">Ethics</span>
-                            <span class="date">May 2025</span>
-                        </div>
-                        <h3>Ethical Considerations in AI Development</h3>
-                        <p>Exploring the moral implications of AI advancements and the responsibility of developers to create ethical systems...</p>
-                        <a href="ethical-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                    
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="category">Business</span>
-                            <span class="date">May 2025</span>
-                        </div>
-                        <h3>How Small Businesses Can Leverage AI</h3>
-                        <p>Practical ways small and medium enterprises can implement AI tools to improve operations and customer experiences...</p>
-                        <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </article>
+      <section id="articles" class="section articles">
+    <div class="container">
+        <h2 class="section-title">Featured Articles</h2>
+        <p class="section-subtitle">Insights and analysis on AI developments</p>
+        
+        <div class="article-list">
+            <article class="article-card">
+                <div class="article-meta">
+                    <span class="category">Trends</span>
+                    <span class="date">May 2025</span>
                 </div>
-            </div>
-        </section>
+                <h3>The Future of AI in Education</h3>
+                <p>How artificial intelligence is transforming learning experiences and what it means for students and educators worldwide...</p>
+                <a href="ai-education-future.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+            </article>
+            
+            <article class="article-card">
+                <div class="article-meta">
+                    <span class="category">Ethics</span>
+                    <span class="date">May 2025</span>
+                </div>
+                <h3>Ethical Considerations in AI Development</h3>
+                <p>Exploring the moral implications of AI advancements and the responsibility of developers to create ethical systems...</p>
+                <a href="ethical-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+            </article>
+            
+            <article class="article-card">
+                <div class="article-meta">
+                    <span class="category">Business</span>
+                    <span class="date">May 2025</span>
+                </div>
+                <h3>How Small Businesses Can Leverage AI</h3>
+                <p>Practical ways small and medium enterprises can implement AI tools to improve operations and customer experiences...</p>
+                <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+            </article>
+        </div>
+    </div>
+</section>
 
         <section id="tools" class="section tools">
             <div class="container">
