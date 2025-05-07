@@ -5,162 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The AI Heaven | Learn About Artificial Intelligence</title>
     <meta name="description" content="Discover tutorials, insights and useful information about AI and tools like ChatGPT">
-    <!-- Improved SEO Meta Tags -->
     <meta property="og:title" content="The AI Heaven | Learn About Artificial Intelligence">
     <meta property="og:description" content="Your gateway to understanding artificial intelligence and leveraging powerful tools like ChatGPT">
     <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:url" content="https://www.aiheaven.com">
     <meta name="twitter:card" content="summary_large_image">
-    <!-- Font and Icon Links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Card Layout Styles */
-        .card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .card-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .card-content p {
-            flex: 1;
-            margin-bottom: 1rem;
-        }
-        
-        .btn-secondary {
-            align-self: flex-start;
-            margin-top: auto;
-        }
-
-        /* Article List Styles */
-        .article-list {
-            display: flex;
-            gap: 2rem;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-        }
-        
-        .article-card {
-            flex: 1;
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            background: #fff;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .article-card h3,
-        .article-card p {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        .read-more {
-            margin-top: auto;
-            color: #9f6fe8;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .read-more:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 1024px) {
-            .article-list {
-                flex-wrap: wrap;
-            }
-            
-            .article-card {
-                min-width: calc(50% - 1rem);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .article-list {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            .article-card {
-                min-width: 100%;
-            }
-        }
-
-        /* About Section Image Fix */
-        .about-image img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 12px;
-        }
-    </style>
 </head>
-
-<!-- Cookie Banner for The AI Heaven -->
-<div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: rgba(40, 40, 50, 0.95); color: #fff; padding: 1rem; font-family: 'Inter', sans-serif; text-align: center; z-index: 9999; display: none; box-shadow: 0 -2px 10px rgba(0,0,0,0.4);">
-  <span style="font-size: 0.95rem;">We use cookies to improve your experience on The AI Heaven. <a href="/cookies.html" style="color: #cfc; text-decoration: underline;">Learn more</a>.</span>
-  <button onclick="acceptCookies()" style="margin-left: 1rem; padding: 0.4rem 1rem; background: #9f6fe8; border: none; border-radius: 6px; color: white; font-weight: 500; cursor: pointer;">Accept</button>
-</div>
-
-<script>
-  function acceptCookies() {
-    document.cookie = "aiheaven_cookies=true; max-age=31536000; path=/";
-    document.getElementById("cookie-banner").style.display = "none";
-  }
-
-  // Mostrar solo si no está aceptado
-  window.addEventListener("DOMContentLoaded", function () {
-    if (!document.cookie.includes("aiheaven_cookies=true")) {
-      document.getElementById("cookie-banner").style.display = "block";
-    }
-  });
-</script>
-
 <body>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner">
+        <span>We use cookies to improve your experience on The AI Heaven. <a href="/cookies.html">Learn more</a>.</span>
+        <button onclick="acceptCookies()">Accept</button>
+    </div>
+
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="index.html" aria-label="Go to homepage">
-                    <i class="fas fa-robot" aria-hidden="true"></i>
+                <a href="index.html">
+                    <i class="fas fa-robot"></i>
                     <span>The AI Heaven</span>
                 </a>
             </div>
             <nav class="nav">
-                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <button class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
                 </button>
-                <ul class="nav-list" role="menu">
-                    <li><a href="#home" role="menuitem">Home</a></li>
-                    <li><a href="#tutorials" role="menuitem">Tutorials</a></li>
-                    <li><a href="#articles" role="menuitem">Articles</a></li>
-                    <li><a href="#tools" role="menuitem">AI Tools</a></li>
-                    <li><a href="#about" role="menuitem">About</a></li>
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#articles">Articles</a></li>
+                    <li><a href="#tools">AI Tools</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </nav>
             <div class="theme-toggle">
-                <button id="themeToggle" aria-label="Toggle dark mode">
+                <button id="themeToggle">
                     <i class="fas fa-moon"></i>
                 </button>
             </div>
@@ -235,44 +117,41 @@
             </div>
         </section>
 
-       <section id="articles" class="section articles">
-        <div class="container">
-            <h2 class="section-title">Featured Articles</h2>
-            <p class="section-subtitle">Insights and analysis on AI developments</p>
-            
-            <div class="article-list">
-                <article class="article-card">
-                    <div class="article-meta">
-                        <span class="category">Trends</span>
-                        <span class="date">May 2025</span>
-                    </div>
-                    <h3>The Future of AI in Education</h3>
-                    <p>How artificial intelligence is transforming learning experiences and what it means for students and educators worldwide...</p>
-                    <a href="ai-education-future.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                </article>
+        <section id="articles" class="section articles">
+            <div class="container">
+                <h2 class="section-title">Featured Articles</h2>
+                <p class="section-subtitle">Insights and analysis on AI developments</p>
                 
-                <article class="article-card">
-                    <div class="article-meta">
-                        <span class="category">Ethics</span>
-                        <span class="date">May 2025</span>
-                    </div>
-                    <h3>Ethical Considerations in AI Development</h3>
-                    <p>Exploring the moral implications of AI advancements and the responsibility of developers to create ethical systems...</p>
-                    <a href="ethical-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                </article>
-                
-                <article class="article-card">
-                    <div class="article-meta">
-                        <span class="category">Business</span>
-                        <span class="date">May 2025</span>
-                    </div>
-                    <h3>How Small Businesses Can Leverage AI</h3>
-                    <p>Practical ways small and medium enterprises can implement AI tools to improve operations and customer experiences...</p>
-                    <a href="small-business-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                </article>
-            </div>
-        </div>
-    </section>
+                <div class="article-list">
+                    <article class="article-card">
+                        <div class="article-meta">
+                            <span class="category">Trends</span>
+                            <span class="date">May 2025</span>
+                        </div>
+                        <h3>The Future of AI in Education</h3>
+                        <p>How artificial intelligence is transforming learning experiences and what it means for students and educators worldwide...</p>
+                        <a href="ai-education-future.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-meta">
+                            <span class="category">Ethics</span>
+                            <span class="date">May 2025</span>
+                        </div>
+                        <h3>Ethical Considerations in AI Development</h3>
+                        <p>Exploring the moral implications of AI advancements and the responsibility of developers to create ethical systems...</p>
+                        <a href="ethical-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-meta">
+                            <span class="category">Business</span>
+                            <span class="date">May 2025</span>
+                        </div>
+                        <h3>How Small Businesses Can Leverage AI</h3>
+                        <p>Practical ways small and medium enterprises can implement AI tools to improve operations and customer experiences...</p>
+                        <a href="small-business-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                    </article>
                 </div>
             </div>
         </section>
@@ -405,43 +284,7 @@
             </div>
         </div>
     </footer>
-<script>
-    // Dark mode toggle functionality - FIXED VERSION
-    document.addEventListener('DOMContentLoaded', function() {
-        const themeToggle = document.getElementById('themeToggle');
-        let currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Apply saved theme
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        
-        // Set initial icon
-        const icon = themeToggle.querySelector('i');
-        updateIcon(currentTheme);
-        
-        themeToggle.addEventListener('click', function() {
-            // Toggle theme
-            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            localStorage.setItem('theme', currentTheme);
-            
-            // Update icon
-            updateIcon(currentTheme);
-        });
-        
-        function updateIcon(theme) {
-            const icon = themeToggle.querySelector('i');
-            if (theme === 'dark') {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
-        }
-    });
 
-    // Auto-update copyright year
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
