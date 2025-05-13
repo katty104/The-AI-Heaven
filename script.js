@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mobile menu
     const mobileMenu = document.querySelector('.nav-list');
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+    document.querySelector('.mobile-menu-toggle button').addEventListener('click', function() {
         mobileMenu.classList.toggle('active');
         this.querySelector('i').classList.toggle('fa-times');
     });
