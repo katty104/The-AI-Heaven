@@ -687,7 +687,7 @@ Tone: <span class="placeholder">[professional / friendly / neutral]</span>.</cod
     <script>
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');;
         
         if (savedTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
