@@ -91,6 +91,60 @@
         margin-top: auto !important;
         width: fit-content;
     }
+        .card-content, .article-card {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+    }
+
+    .card-content p, .article-card p {
+      flex-grow: 1;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .btn-secondary, .read-more {
+      margin-top: auto !important;
+      width: fit-content;
+    }
+
+    /* Image Standardization */
+    .card-image, .hero-image, .about-image {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .card-image img, .hero-image img, .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Footer Bullet Fix */
+    .footer-col ul {
+      list-style: none !important;
+      padding-left: 0 !important;
+    }
+
+    /* Link Color Consistency */
+    a:not(.btn) {
+      color: #8a63d2 !important;
+      text-decoration: underline;
+    }
+
+    a:hover:not(.btn) {
+      color: #6e48aa !important;
+    }
+
+    /* Original CSS Below */
+    :root {
+      --primary-color: #6e48aa;
+      --primary-light: #9d50bb;
+      --secondary-color: #4776e6;
+      --text-color: #2d3748;
+      --bg-color: #ffffff;
+      --font-main: 'Inter', sans-serif;
+    }
     </style>
 </head>
 <body>
@@ -137,10 +191,11 @@
                     <a href="#tutorials" class="btn btn-primary">Start Learning</a>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-                         alt="AI neural network visualization" 
-                         width="1200" 
-                         height="630">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485" 
+             alt="AI neural network visualization"
+             loading="lazy"
+             width="1200"
+             height="675">
                 </div>
             </div>
         </section>
@@ -150,14 +205,14 @@
                 <h2 class="section-title">Latest Tutorials</h2>
                 <p class="section-subtitle">Step-by-step guides to master AI tools</p>
                 
-                <div class="card-grid">
-                    <article class="card">
-                        <div class="card-image">
-                            <img src="prompt-illustration.jpg" 
-                                 alt="ChatGPT interface with prompt examples"
-                                 width="1000"
-                                 height="600">
-                        </div>
+                <article class="card">
+          <div class="card-image">
+            <img src="prompt-illustration.jpg" 
+                 alt="ChatGPT interface"
+                 loading="lazy"
+                 width="1200"
+                 height="675">
+          </div>
                         <div class="card-content">
                             <h3>Mastering ChatGPT Prompts</h3>
                             <p>Learn how to craft effective prompts to get the best results from ChatGPT for various use cases.</p>
@@ -169,8 +224,9 @@
                         <div class="card-image">
                             <img src="dalle-tutorial-cover.jpg" 
                                  alt="AI generated images examples"
-                                 width="1000"
-                                 height="600">
+                                  loading="lazy"
+                 width="1200"
+                 height="675">
                         </div>
                         <div class="card-content">
                             <h3>AI Image Generation Guide</h3>
@@ -183,8 +239,9 @@
                         <div class="card-image">
                             <img src="ai-automation-header.jpg" 
                                  alt="Workflow automation with AI"
-                                 width="1000"
-                                 height="600">
+                                   loading="lazy"
+                 width="1200"
+                 height="675">>
                         </div>
                         <div class="card-content">
                             <h3>Automate Tasks with AI</h3>
