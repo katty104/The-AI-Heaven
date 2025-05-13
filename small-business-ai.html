@@ -549,6 +549,21 @@
     height: auto;
     aspect-ratio: 16/9;
 }
+       .primary-link {
+        color: #8a63d2 !important;
+        text-decoration: underline !important;
+    }
+
+    .primary-link:hover {
+        color: #6e48aa !important;
+    }
+    
+    /* Preserve white bullets */
+    .resources-list li::before {
+        content: "•";
+        color: white;
+        margin-right: 0.5rem;
+    }  
     </style>
 </head>
 <body>
