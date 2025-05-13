@@ -73,6 +73,24 @@
     margin-bottom: 1.5rem !important;
     min-height: auto !important; /* Remove fixed min-height */
 }
+        /* Consistent text alignment */
+    .card-content, .article-card, .post-content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 300px; /* Ensures equal height blocks */
+    }
+
+    .card-content p, .article-card p, .post-content p {
+        flex-grow: 1;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Button alignment fix */
+    .btn-secondary, .read-more {
+        margin-top: auto !important;
+        width: fit-content;
+    }
     </style>
 </head>
 <body>
