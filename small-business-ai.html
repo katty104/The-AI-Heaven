@@ -521,6 +521,20 @@
             margin-left: auto;
             white-space: nowrap;
         }
+        .card-image, .article-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9; /* Fixed aspect ratio */
+    object-fit: cover; /* Ensures images fill space nicely */
+    border-radius: 8px; /* Consistent with design */
+}
+
+/* For hero images */
+.hero-image img, .about-image img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
     </style>
 </head>
 <body>
@@ -555,7 +569,7 @@
                 <h1>💼 How Small Businesses Can Leverage AI: A Practical Guide</h1>
                 <p><strong>By The AI Heaven</strong></p>
                 <div style="text-align: center; margin: 1.5rem 0;">
-                    <img src="small-business-ai-cover.jpg" loading="lazy" alt="Small business owner using AI tools" width="1200" height="630" style="max-width: 100%; height: auto;">
+                    <img src="small-business-ai-cover.jpg" loading="lazy" alt="Small business owner using AI tools" width="1200" height="630" style="max-width: 100%; height: auto; aspect-ratio: 16/9;">
                 </div>
             </header>
             <div class="post-content">
