@@ -554,6 +554,21 @@
                 grid-template-columns: 1fr;
             }
         }
+        .card-image, .article-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9; /* Fixed aspect ratio */
+    object-fit: cover; /* Ensures images fill space nicely */
+    border-radius: 8px; /* Consistent with design */
+}
+
+/* For hero images */
+.hero-image img, .about-image img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
+
     </style>
 </head>
 <body>
