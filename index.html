@@ -19,19 +19,71 @@
       flex-direction: column;
       height: 100%;
     }
-    .card-content {
-      flex: 1;
+  .card-content, .article-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+    .card-content p, .article-card p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+   .btn-secondary, .read-more {
+    margin-top: auto;
+    width: fit-content;
+}
+.post-content {
+    padding: 0 1rem; /* Consistent side padding */
+}
+
+.post-content h2, 
+.post-content h3 {
+    margin: 2rem 0 1rem;
+    padding: 0 1rem; /* Matches content padding */
+}
+.card-content {
+    padding: 1.5rem !important; /* Override any inline styles */
+}
+
+.card-content p {
+    margin-bottom: 1.5rem !important;
+    min-height: auto !important; /* Remove fixed min-height */
+}
+   .card-content, .article-card, .post-content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 300px; /* Ensures equal height blocks */
+    }
+
+    .card-content p, .article-card p, .post-content p {
+        flex-grow: 1;
+        margin-bottom: 1.5rem !important;
+    }
+.btn-secondary, .read-more {
+        margin-top: auto !important;
+        width: fit-content;
+    }
+        .card-content, .article-card {
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
+      min-height: 300px;
     }
-    .card-content p {
-      flex: 1;
-      margin-bottom: 1rem;
+.hero-image, .card-image, .about-image {
+    position: relative;
+    overflow: hidden;
+}
+        @media (max-width: 768px) {
+    .hero-image, .card-image, .about-image {
+        aspect-ratio: 1/1;
     }
-    .btn-secondary {
-      align-self: flex-start;
-      margin-top: auto;
-    }
+}
+
   </style>
 </head>
 <body>
@@ -97,8 +149,9 @@
             <div class="card-image">
               <img src="prompt-illustration.jpg" 
                    alt="ChatGPT interface with prompt examples" 
-                   width="1000" 
-                   height="600">
+                   loading="lazy"
+                 width="1200"
+                 height="675">
             </div>
             <div class="card-content">
               <h3>Mastering ChatGPT Prompts</h3>
@@ -111,8 +164,10 @@
             <div class="card-image">
               <img src="dalle-tutorial-cover.jpg" 
                    alt="AI generated images examples" 
-                   width="1000" 
-                   height="600">
+                      loading="lazy"
+                 width="1200"
+                 height="675">
+
             </div>
             <div class="card-content">
               <h3>AI Image Generation Guide</h3>
@@ -125,8 +180,9 @@
             <div class="card-image">
               <img src="ai-automation-header.jpg" 
                    alt="Workflow automation with AI" 
-                   width="1000" 
-                   height="600">
+                     loading="lazy"
+                 width="1200"
+                 height="675">
             </div>
             <div class="card-content">
               <h3>Automate Tasks with AI</h3>
