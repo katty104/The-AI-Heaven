@@ -448,6 +448,20 @@
                 text-align: left;
             }
         }
+        .card-image, .article-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9; /* Fixed aspect ratio */
+    object-fit: cover; /* Ensures images fill space nicely */
+    border-radius: 8px; /* Consistent with design */
+}
+
+/* For hero images */
+.hero-image img, .about-image img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
     </style>
 </head>
 <body>
@@ -482,7 +496,7 @@
                 <h1>⚙️ Automate Tasks with AI: Boost Your Productivity with Smart Tools</h1>
                 <p><strong>By The AI Heaven</strong></p>
                 <div style="text-align: center; margin: 1.5rem 0;">
-                    <img src="ai-automation-header.jpg" loading="lazy" alt="AI organizing tasks"width="1200" height="630" style="max-width: 100%; height: auto;">
+                    <img src="ai-automation-header.jpg" loading="lazy" alt="AI organizing tasks"width="1200" height="630" style="max-width: 100%; height: auto; aspect-ratio: 16/9">
                 </div>
             </header>
             <div class="post-content">
