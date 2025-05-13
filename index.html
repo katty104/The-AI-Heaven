@@ -1,436 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The AI Heaven | Learn About Artificial Intelligence</title>
-    <meta name="description" content="Discover tutorials, insights and useful information about AI and tools like ChatGPT">
-    <meta property="og:title" content="The AI Heaven | Learn About Artificial Intelligence">
-    <meta property="og:description" content="Your gateway to understanding artificial intelligence and leveraging powerful tools like ChatGPT">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:url" content="https://www.aiheaven.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
- /* REPLACE ALL CARD STYLES WITH THIS: */
-.card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.card-content, .article-card {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.card-content p, .article-card p {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    flex-grow: 1;
-}
-
-.btn-secondary, .read-more {
-    margin-top: auto;
-    width: fit-content;
-}
-
-.read-more, .btn-secondary {
-    display: inline-block;
-    margin-top: 1rem; /* Consistent button placement */
-}
-        /* For Articles (ai-education-future.html) */
-.post-content {
-    padding: 0 1rem; /* Consistent side padding */
-}
-
-.post-content h2, 
-.post-content h3 {
-    margin: 2rem 0 1rem;
-    padding: 0 1rem; /* Matches content padding */
-}
-
-/* For Tutorials (ai-tasks.html) */
-.card-content {
-    padding: 1.5rem !important; /* Override any inline styles */
-}
-
-.card-content p {
-    margin-bottom: 1.5rem !important;
-    min-height: auto !important; /* Remove fixed min-height */
-}
-        /* Consistent text alignment */
-    .card-content, .article-card, .post-content {
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        min-height: 300px; /* Ensures equal height blocks */
-    }
-
-    .card-content p, .article-card p, .post-content p {
-        flex-grow: 1;
-        margin-bottom: 1.5rem !important;
-    }
-
-    /* Button alignment fix */
-    .btn-secondary, .read-more {
-        margin-top: auto !important;
-        width: fit-content;
-    }
-        .card-content, .article-card {
-      padding: 1.5rem;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Heaven | Learn About Artificial Intelligence</title>
+  <meta name="description" content="Discover tutorials, insights and useful information about AI and tools like ChatGPT">
+  <meta property="og:title" content="The AI Heaven | Learn About Artificial Intelligence">
+  <meta property="og:description" content="Your gateway to understanding artificial intelligence and leveraging powerful tools like ChatGPT">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="https://www.aineaven.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .card {
       display: flex;
       flex-direction: column;
-      min-height: 300px;
-    }
-
-    .card-content p, .article-card p {
-      flex-grow: 1;
-      margin-bottom: 1.5rem !important;
-    }
-
-    .btn-secondary, .read-more {
-      margin-top: auto !important;
-      width: fit-content;
-    }
-
-    /* Image Standardization */
-    .card-image, .hero-image, .about-image {
-      aspect-ratio: 16/9;
-      overflow: hidden;
-    }
-
-    .card-image img, .hero-image img, .about-image img {
-      width: 100%;
       height: 100%;
-      object-fit: cover;
     }
-
-  /* Add this to completely remove bullets */
-.footer-col ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-    /* Link Color Consistency */
-    a:not(.btn) {
-      color: #8a63d2 !important;
-      text-decoration: underline;
+    .card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
-
-    a:hover:not(.btn) {
-      color: #6e48aa !important;
+    .card-content p {
+      flex: 1;
+      margin-bottom: 1rem;
     }
-
-    /* Original CSS Below */
-    :root {
-      --primary-color: #6e48aa;
-      --primary-light: #9d50bb;
-      --secondary-color: #4776e6;
-      --text-color: #2d3748;
-      --bg-color: #ffffff;
-      --font-main: 'Inter', sans-serif;
+    .btn-secondary {
+      align-self: flex-start;
+      margin-top: auto;
     }
-        .hero-image, .card-image, .about-image {
-    position: relative;
-    overflow: hidden;
-}
-        @media (max-width: 768px) {
-    .hero-image, .card-image, .about-image {
-        aspect-ratio: 1/1;
-    }
-}
-[data-theme="dark"] a:not(.btn) {
-    color: var(--primary-light) !important;
-    text-decoration-color: var(--primary-light);
-}
-    </style>
+  </style>
 </head>
 <body>
-    <!-- Cookie Banner -->
-    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: rgba(40, 40, 50, 0.95); color: #fff; padding: 1rem; font-family: 'Inter', sans-serif; text-align: center; z-index: 9999; display: none; box-shadow: 0 -2px 10px rgba(0,0,0,0.4);">
-        <span style="font-size: 0.95rem;">We use cookies to improve your experience on The AI Heaven. <a href="/cookies.html" style="color: #cfc; text-decoration: underline;">Learn more</a>.</span>
-        <button onclick="acceptCookies()" style="margin-left: 1rem; padding: 0.4rem 1rem; background: #8a63d2 ; border: none; border-radius: 6px; color: white; font-weight: 500; cursor: pointer;">Accept</button>
+  <!-- Fixed Cookie Banner -->
+  <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: rgba(40, 40, 50, 0.95); color: #fff; padding: 1rem; font-family: 'Inter', sans-serif; text-align: center; z-index: 9999; display: none; box-shadow: 0 -2px 10px rgba(0,0,0,0.4);">
+    <span style="font-size: 0.95rem;">We use cookies to improve your experience on The AI Heaven. <a href="/cookies.html" style="color: #cfc; text-decoration: underline;">Learn more</a></span>
+    <button onclick="acceptCookies()" style="margin-left: 1rem; padding: 0.4rem 1rem; background: #8a63d2; border: none; border-radius: 6px; color: white; font-weight: 500; cursor: pointer;">Accept</button>
+  </div>
 
+  <!-- Fixed Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html" aria-label="Go to homepage">
+          <i class="fas fa-robot" aria-hidden="true"></i>
+          <span>The AI Heaven</span>
+        </a>
+      </div>
+      <nav class="nav">
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-list" role="menu">
+          <li><a href="#home" role="menuitem">Home</a></li>
+          <li><a href="#tutorials" role="menuitem">Tutorials</a></li>
+          <li><a href="#articles" role="menuitem">Articles</a></li>
+          <li><a href="#tools" role="menuitem">AI Tools</a></li>
+          <li><a href="#about" role="menuitem">About</a></li>
+        </ul>
+      </nav>
+      <div class="theme-toggle">
+        <button id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html" aria-label="Go to homepage">
-                    <i class="fas fa-robot" aria-hidden="true"></i>
-                    <span>The AI Heaven</span>
-                </a>
-            </div>
-            <nav class="nav">
-                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-list" role="menu">
-                    <li><a href="#home" role="menuitem">Home</a></li>
-                    <li><a href="#tutorials" role="menuitem">Tutorials</a></li>
-                    <li><a href="#articles" role="menuitem">Articles</a></li>
-                    <li><a href="#tools" role="menuitem">AI Tools</a></li>
-                    <li><a href="#about" role="menuitem">About</a></li>
-                </ul>
-            </nav>
-            <div class="theme-toggle">
-                <button id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Welcome to The AI Heaven</h1>
+          <p class="subtitle">Your gateway to understanding artificial intelligence and leveraging powerful tools like ChatGPT</p>
+          <a href="#tutorials" class="btn btn-primary">Start Learning</a>
         </div>
-    </header>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+               alt="AI neural network visualization" 
+               width="1200" 
+               height="630">
+        </div>
+      </div>
+    </section>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Welcome to The AI Heaven</h1>
-                    <p class="subtitle">Your gateway to understanding artificial intelligence and leveraging powerful tools like ChatGPT</p>
-                    <a href="#tutorials" class="btn btn-primary">Start Learning</a>
-                </div>
-                <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485" 
-             alt="AI neural network visualization"
-             loading="lazy"
-             width="1200"
-             height="675">
-                </div>
+    <!-- Tutorials Section -->
+    <section id="tutorials" class="section tutorials">
+      <div class="container">
+        <h2 class="section-title">Latest Tutorials</h2>
+        <p class="section-subtitle">Step-by-step guides to master AI tools</p>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-image">
+              <img src="prompt-illustration.jpg" 
+                   alt="ChatGPT interface with prompt examples" 
+                   width="1000" 
+                   height="600">
             </div>
-        </section>
+            <div class="card-content">
+              <h3>Mastering ChatGPT Prompts</h3>
+              <p>Learn how to craft effective prompts to get the best results from ChatGPT for various use cases.</p>
+              <a href="chatgpt-prompts-tutorial.html" class="btn btn-secondary">Read Tutorial</a>
+            </div>
+          </article>
 
-        <section id="tutorials" class="section tutorials">
-            <div class="container">
-                <h2 class="section-title">Latest Tutorials</h2>
-                <p class="section-subtitle">Step-by-step guides to master AI tools</p>
-                
-                <article class="card">
-          <div class="card-image">
-            <img src="prompt-illustration.jpg" 
-                 alt="ChatGPT interface"
-                 loading="lazy"
-                 width="1200"
-                 height="675">
+          <article class="card">
+            <div class="card-image">
+              <img src="dalle-tutorial-cover.jpg" 
+                   alt="AI generated images examples" 
+                   width="1000" 
+                   height="600">
+            </div>
+            <div class="card-content">
+              <h3>AI Image Generation Guide</h3>
+              <p>Learn how to craft effective prompts, edit images with precision and generate stunning visuals using DALL·E.</p>
+              <a href="dalle-tutorial.html" class="btn btn-secondary">Read Tutorial</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-image">
+              <img src="ai-automation-header.jpg" 
+                   alt="Workflow automation with AI" 
+                   width="1000" 
+                   height="600">
+            </div>
+            <div class="card-content">
+              <h3>Automate Tasks with AI</h3>
+              <p>Learn how to automate repetitive tasks using AI tools and save time without writing any code.</p>
+              <a href="ai-tasks.html" class="btn btn-secondary">Read Tutorial</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="section articles">
+      <div class="container">
+        <h2 class="section-title">Featured Articles</h2>
+        <p class="section-subtitle">Insights and analysis on AI developments</p>
+        <div class="article-list">
+          <article class="article-card">
+            <div class="article-meta">
+              <span class="category">Trends</span>
+              <span class="date">May 2025</span>
+            </div>
+            <h3>The Future of AI in Education</h3>
+            <p>How artificial intelligence is transforming learning experiences and what it means for students and educators worldwide...</p>
+            <a href="ai-education-future.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <article class="article-card">
+            <div class="article-meta">
+              <span class="category">Ethics</span>
+              <span class="date">May 2025</span>
+            </div>
+            <h3>Ethical Considerations in AI Development</h3>
+            <p>Exploring the moral implications of AI advancements and the responsibility of developers to create ethical systems...</p>
+            <a href="ethical-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <article class="article-card">
+            <div class="article-meta">
+              <span class="category">Business</span>
+              <span class="date">May 2025</span>
+            </div>
+            <h3>How Small Businesses Can Leverage AI</h3>
+            <p>Practical ways small and medium enterprises can implement AI tools to improve operations and customer experiences...</p>
+            <a href="small-business-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section tools">
+      <div class="container">
+        <h2 class="section-title">Popular AI Tools</h2>
+        <p class="section-subtitle">Essential tools to explore and experiment with</p>
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-comment-dots"></i>
+            </div>
+            <h3>ChatGPT</h3>
+            <p>Advanced conversational AI by OpenAI that can assist with writing, coding, and more.</p>
+            <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
           </div>
-                        <div class="card-content">
-                            <h3>Mastering ChatGPT Prompts</h3>
-                            <p>Learn how to craft effective prompts to get the best results from ChatGPT for various use cases.</p>
-                            <a href="chatgpt-prompts-tutorial.html" class="btn btn-secondary">Read Tutorial</a>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image">
-                            <img src="dalle-tutorial-cover.jpg" 
-                                 alt="AI generated images examples"
-                                  loading="lazy"
-                 width="1200"
-                 height="675">
-                        </div>
-                        <div class="card-content">
-                            <h3>AI Image Generation Guide</h3>
-                            <p>Learn how to craft effective prompts, edit images with precision and generate stunning visuals using DALL·E.</p>
-                            <a href="dalle-tutorial.html" class="btn btn-secondary">Read Tutorial</a>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image">
-                            <img src="ai-automation-header.jpg" 
-                                 alt="Workflow automation with AI"
-                                   loading="lazy"
-                 width="1200"
-                 height="675">
-                        </div>
-                        <div class="card-content">
-                            <h3>Automate Tasks with AI</h3>
-                            <p>Learn how to automate repetitive tasks using AI tools and save time without writing any code.</p>
-                            <a href="ai-tasks.html" class="btn btn-secondary">Read Tutorial</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
 
-        <section id="articles" class="section articles">
-            <div class="container">
-                <h2 class="section-title">Featured Articles</h2>
-                <p class="section-subtitle">Insights and analysis on AI developments</p>
-                
-                <div class="article-list">
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="category">Trends</span>
-                            <span class="date">May 2025</span>
-                        </div>
-                        <h3>The Future of AI in Education</h3>
-                        <p>How artificial intelligence is transforming learning experiences and what it means for students and educators worldwide...</p>
-                        <a href="ai-education-future.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                    
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="category">Ethics</span>
-                            <span class="date">May 2025</span>
-                        </div>
-                        <h3>Ethical Considerations in AI Development</h3>
-                        <p>Exploring the moral implications of AI advancements and the responsibility of developers to create ethical systems...</p>
-                        <a href="ethical-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                    
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="category">Business</span>
-                            <span class="date">May 2025</span>
-                        </div>
-                        <h3>How Small Businesses Can Leverage AI</h3>
-                        <p>Practical ways small and medium enterprises can implement AI tools to improve operations and customer experiences...</p>
-                        <a href="small-business-ai.html" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-image"></i>
             </div>
-        </section>
+            <h3>Midjourney</h3>
+            <p>AI-powered image generation tool that creates stunning visuals from text prompts.</p>
+            <a href="https://www.midjourney.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
+          </div>
 
-        <section id="tools" class="section tools">
-            <div class="container">
-                <h2 class="section-title">Popular AI Tools</h2>
-                <p class="section-subtitle">Essential tools to explore and experiment with</p>
-                
-                <div class="tool-grid">
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-comment-dots"></i>
-                        </div>
-                        <h3>ChatGPT</h3>
-                        <p>Advanced conversational AI by OpenAI that can assist with writing, coding, and more.</p>
-                        <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
-                    </div>
-                    
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <h3>Midjourney</h3>
-                        <p>AI-powered image generation tool that creates stunning visuals from text prompts.</p>
-                        <a href="https://www.midjourney.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
-                    </div>
-                    
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>GitHub Copilot</h3>
-                        <p>AI coding assistant that helps you write better code, fix bugs and stay productive.</p>
-                        <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
-                    </div>
-                    
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>DeepSeek Chat</h3>
-                        <p>Powerful AI assistant with deep knowledge and long-context understanding.</p>
-                        <a href="https://www.deepseek.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
-                    </div>
-                </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-code"></i>
             </div>
-        </section>
+            <h3>GitHub Copilot</h3>
+            <p>AI coding assistant that helps you write better code, fix bugs and stay productive.</p>
+            <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
+          </div>
 
-        <section id="about" class="section about">
-            <div class="container">
-                <div class="about-content">
-                    <h2 class="section-title">About The AI Heaven</h2>
-                    <p>The AI Heaven was founded in <strong>2025</strong> with the mission to democratize knowledge about artificial intelligence. We believe that AI should be accessible to everyone, not just researchers and tech giants.</p>
-                    <p>Our team of AI enthusiasts, developers, and educators work together to create high-quality, easy-to-understand content that helps people understand and utilize AI tools effectively.</p>
-                    <p>Whether you're a complete beginner or an experienced professional, you'll find valuable resources here to expand your AI knowledge.</p>
-                </div>
-               <!-- About Section Image Fix -->
-<div class="about-image">
-    <img src="aiheaven.jpg" 
-         alt="Team working" 
-         loading="lazy"
-         width="1200"
-         height="675"> <!-- Changed from 630 to 675 for 16:9 ratio -->
-</div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-brain"></i>
             </div>
-        </section>
-        
-        <section class="newsletter">
-            <div class="container">
-                <!-- Add aria-label to newsletter form -->
-<form class="newsletter-form" aria-label="Newsletter subscription">
-                    <h2>Stay Updated</h2>
-                    <p>Subscribe to our newsletter for the latest AI insights, tutorials, and tool recommendations.</p>
-                </div>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>The AI Heaven</h3>
-                    <p>Your comprehensive resource for learning about artificial intelligence and how to use AI tools effectively.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#tutorials">Tutorials</a></li>
-                        <li><a href="#articles">Articles</a></li>
-                        <li><a href="#tools">AI Tools</a></li>
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Beginner's Guide</a></li>
-                        <li><a href="#">AI Glossary</a></li>
-                        <li><a href="#">Tool Comparisons</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> info@aiheaven.com</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom" role="contentinfo">
-                <p>&copy; <span id="current-year">2025</span> The AI Heaven. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="cookies.html">Cookies</a>
-                </div>
-            </div>
+            <h3>DeepSeek Chat</h3>
+            <p>Powerful AI assistant with deep knowledge and long-context understanding.</p>
+            <a href="https://www.deepseek.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore</a>
+          </div>
         </div>
-    </footer>
-    <script src="script.js"></script>
-    <script>
-        // Auto-update copyright year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="about-content">
+          <h2 class="section-title">About The AI Heaven</h2>
+          <p>The AI Heaven was founded in <strong>2025</strong> with the mission to democratize knowledge about artificial intelligence. We believe that AI should be accessible to everyone, not just researchers and tech giants.</p>
+          <p>Our team of AI enthusiasts, developers, and educators work together to create high-quality, easy-to-understand content that helps people understand and utilize AI tools effectively.</p>
+          <p>Whether you're a complete beginner or an experienced professional, you'll find valuable resources here to expand your AI knowledge.</p>
+        </div>
+        <div class="about-image">
+          <img src="aiheaven.jpg" 
+               alt="The AI Heaven team working together" 
+               width="1200" 
+               height="630">
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter-content">
+          <h2>Stay Updated</h2>
+          <p>Subscribe to our newsletter for the latest AI insights, tutorials, and tool recommendations.</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fixed Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>The AI Heaven</h3>
+          <p>Your comprehensive resource for learning about artificial intelligence and how to use AI tools effectively.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tutorials">Tutorials</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#tools">AI Tools</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Beginner's Guide</a></li>
+            <li><a href="#">AI Glossary</a></li>
+            <li><a href="#">Tool Comparisons</a></li>
+            <li><a href="#">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> info@aiheaven.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2025</span> The AI Heaven. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Auto-update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
