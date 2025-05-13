@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Cookie banner
+    // Add aria-live attribute
+const cookieBanner = document.getElementById('cookie-banner');
+cookieBanner.setAttribute('aria-live', 'polite');
     function acceptCookies() {
         document.cookie = "aiheaven_cookies=true; max-age=31536000";
         document.getElementById('cookie-banner').style.display = 'none';
