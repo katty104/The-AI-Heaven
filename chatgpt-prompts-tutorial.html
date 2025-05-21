@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Why Prompt Engineering Matters | The AI Heaven</title>
-    <meta name="description" content="Learn how prompt engineering unlocks AI's potential - techniques for ChatGPT and beyond">
+    <meta name="description" content="Learn the art of prompt engineering to unlock AI's full potential - techniques, templates, and practical examples">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
+         :root {
             --primary: #6e48aa;
             --primary-light: #9d50bb;
             --text: #2d3748;
@@ -403,38 +403,9 @@
                 text-align: left;
             }
         }
-        .card-image, .article-card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9; /* Fixed aspect ratio */
-    object-fit: cover; /* Ensures images fill space nicely */
-    border-radius: 8px; /* Consistent with design */
-}
 
-/* For hero images */
-.hero-image img, .about-image img {
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
-}
-.example-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
+        .prompt-template-container {
             margin: 1.5rem 0;
-        }
-
-        .example-item {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem;
-            background: var(--bg-secondary);
-        }
-
-        .example-label {
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
         }
 
         .prompt-template {
@@ -461,6 +432,25 @@
             font-size: 0.9rem;
         }
 
+        .prompt-template pre {
+            margin: 0;
+            padding: 1.2rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+        }
+
+        .prompt-template code {
+            display: block;
+            padding: 0;
+            background: transparent;
+            border: none;
+        }
+
         .placeholder {
             color: var(--primary-light);
             font-style: italic;
@@ -478,11 +468,73 @@
             }
         }
 
+        @media (min-width: 992px) {
+            .prompt-template pre {
+                font-size: 0.95rem;
+            }
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .example-label {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
         @media (min-width: 600px) {
             .example-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        .card-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 10px;
+        }
+        
+        .card-content h3 {
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        
+        .card-content p {
+            flex: 1;
+            min-width: 100%;
+            margin-bottom: 0;
+        }
+        
+        .btn-secondary {
+            margin-left: auto;
+            white-space: nowrap;
+        }
+       .card-image, .article-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9; /* Fixed aspect ratio */
+    object-fit: cover; /* Ensures images fill space nicely */
+    border-radius: 8px; /* Consistent with design */
+}
+
+/* For hero images */
+.hero-image img, .about-image img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+} 
     </style>
 </head>
 <body>
@@ -517,87 +569,127 @@
                 <h1>🧠 Why Prompt Engineering Matters</h1>
                 <p><strong>By The AI Heaven</strong></p>
                 <div style="text-align: center; margin: 1.5rem 0;">
-                    <img src="prompt-illustration.jpg" loading="lazy" alt="Prompt engineering visualized with AI assistant"width="1200" height="630" style="max-width: 100%; height: auto; aspect-ratio: 16/9;">
+                    <img src="prompt-engineering-cover.jpg" loading="lazy" alt="Prompt engineering visualized with AI assistant" width="1200" height="630" style="max-width: 100%; height: auto; aspect-ratio: 16/9;">
                 </div>
             </header>
             <div class="post-content">
                 <p>Mastering how you talk to AI is like learning a new language—one that can multiply your productivity and creativity.</p>
-                <p>Artificial Intelligence (AI) is rapidly transforming how we live, work, and think. Yet, few realize that behind every smart chatbot or intelligent assistant lies a subtle but powerful art: <strong>prompt engineering</strong>. This emerging skill is essential for unlocking the true potential of generative AI tools like ChatGPT, Claude, Gemini, or Bard.</p>
+
+                <p>Artificial Intelligence (AI) is rapidly transforming how we live, work, and think. Yet, few realize that behind every smart chatbot or intelligent assistant lies a subtle but powerful art: prompt engineering. This emerging skill is essential for unlocking the true potential of generative AI tools like ChatGPT, Claude, Gemini, or Bard.</p>
+
                 <p>Whether you're a student writing essays, a business owner creating content, or just someone curious about AI, learning how to craft powerful prompts is a game-changer. Let's dive deep into the why, the how, and the practice.</p>
 
                 <h2>🤔 What Is Prompt Engineering?</h2>
                 <p>Prompt engineering is the practice of crafting clear, strategic text instructions that guide an AI to perform a specific task. These prompts act as your "programming language," except you're writing in natural language.</p>
+                
                 <p>It's not just about writing a question. It's about:</p>
                 <ul>
-                  <li>Setting clear intent</li>
-                  <li>Providing the right context</li>
-                  <li>Specifying the format</li>
-                  <li>Anticipating ambiguity</li>
+                    <li>Setting clear intent</li>
+                    <li>Providing the right context</li>
+                    <li>Specifying the format</li>
+                    <li>Anticipating ambiguity</li>
                 </ul>
 
                 <h3>Why It Matters</h3>
                 <p>Imagine asking a person:</p>
-                <blockquote>"Write something about cats."</blockquote>
+                <p>"Write something about cats."</p>
                 <p>Now ask:</p>
-                <blockquote>"Write a 3-paragraph blog post about why cats make great indoor pets, in a warm and friendly tone, including 2 bullet points and a short conclusion."</blockquote>
+                <p>"Write a 3-paragraph blog post about why cats make great indoor pets, in a warm and friendly tone, including 2 bullet points and a short conclusion."</p>
                 <p>Which request do you think gives a better result? Prompt engineering is all about getting from vague to vivid.</p>
 
                 <h2>✅ Benefits of Good Prompting</h2>
                 <ul>
-                  <li><strong>Clarity = Better Output:</strong> The more specific you are, the less guessing the AI does.</li>
-                  <li><strong>Efficiency:</strong> Spend less time fixing or rewriting AI outputs.</li>
-                  <li><strong>Consistency:</strong> Reuse effective prompts as templates across projects.</li>
-                  <li><strong>Control:</strong> Guide the AI's tone, format, perspective, and more.</li>
-                  <li><strong>Creativity:</strong> Unleash new ideas by framing prompts in unexpected ways.</li>
+                    <li><strong>Clarity = Better Output:</strong> The more specific you are, the less guessing the AI does.</li>
+                    <li><strong>Efficiency:</strong> Spend less time fixing or rewriting AI outputs.</li>
+                    <li><strong>Consistency:</strong> Reuse effective prompts as templates across projects.</li>
+                    <li><strong>Control:</strong> Guide the AI's tone, format, perspective, and more.</li>
+                    <li><strong>Creativity:</strong> Unleash new ideas by framing prompts in unexpected ways.</li>
                 </ul>
 
                 <h2>🚀 Modern Prompting Techniques (with Examples)</h2>
-
                 <h3>1. Chain-of-Thought Prompting (CoT)</h3>
                 <p>Get the AI to think step by step. Especially useful in problem-solving or logical tasks.</p>
-                <blockquote>"Explain step by step how to calculate the area of a triangle with a base of 10 cm and height of 5 cm."</blockquote>
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <div class="prompt-header">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>EXAMPLE PROMPT</span>
+                        </div>
+                        <pre><code>"Explain step by step how to calculate the area of a triangle with a base of 10 cm and height of 5 cm."</code></pre>
+                    </div>
+                </div>
 
                 <h3>2. Tree-of-Thought Prompting (ToT)</h3>
                 <p>Ask the AI to generate several options, then compare them.</p>
-                <blockquote>"Give me 3 different strategies for marketing a new mobile app. Then choose the most effective one and explain why."</blockquote>
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <pre><code>"Give me 3 different strategies for marketing a new mobile app. Then choose the most effective one and explain why."</code></pre>
+                    </div>
+                </div>
 
                 <h3>3. Few-Shot Prompting</h3>
                 <p>Provide examples to teach the AI the format or style.</p>
-                <blockquote>"Here are 2 examples of product descriptions. Now write one for this new product..."</blockquote>
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <pre><code>"Here are 2 examples of product descriptions. Now write one for this new product..."</code></pre>
+                    </div>
+                </div>
 
                 <h3>4. Zero-Shot Prompting</h3>
                 <p>Give a clear instruction with no examples.</p>
-                <blockquote>"Write a haiku about rain using nature imagery."</blockquote>
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <pre><code>"Write a haiku about rain using nature imagery."</code></pre>
+                    </div>
+                </div>
 
                 <h3>5. Self-Consistency Prompting</h3>
                 <p>Ask the AI to try multiple versions and choose the most coherent.</p>
-                <blockquote>"Generate 3 different explanations of this concept. Choose the clearest one."</blockquote>
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <pre><code>"Generate 3 different explanations of this concept. Choose the clearest one."</code></pre>
+                    </div>
+                </div>
 
                 <h2>⚠️ 5 Common Prompting Mistakes (and How to Fix Them)</h2>
-                <ol>
-                  <li><strong>Being Too Vague</strong><br>Bad: "Tell me something about AI."<br>Better: "Summarize in 3 bullet points how AI is transforming healthcare, for a beginner audience."</li>
-                  <li><strong>Forgetting the Format</strong><br>If you want a list, ask for a list. If you want HTML, ask for HTML.</li>
-                  <li><strong>Ignoring the Audience</strong><br>Specify who will read the output: kids, students, experts, customers, etc.</li>
-                  <li><strong>Cramming Too Much</strong><br>Long, chaotic prompts confuse the model. Break tasks into smaller parts.</li>
-                  <li><strong>Skipping Iteration</strong><br>Don't expect perfection on the first try. Prompting is a process, not a one-shot trick.</li>
-                </ol>
+                <div class="highlight-box">
+                    <table style="width: 100%;">
+                        <tr>
+                            <th>Mistake</th>
+                            <th>Fix</th>
+                        </tr>
+                        <tr>
+                            <td>Being Too Vague</td>
+                            <td>Bad: "Tell me something about AI."<br>Better: "Summarize in 3 bullet points how AI is transforming healthcare, for a beginner audience."</td>
+                        </tr>
+                        <tr>
+                            <td>Forgetting the Format</td>
+                            <td>If you want a list, ask for a list. If you want HTML, ask for HTML.</td>
+                        </tr>
+                        <tr>
+                            <td>Ignoring the Audience</td>
+                            <td>Specify who will read the output: kids, students, experts, customers, etc.</td>
+                        </tr>
+                        <tr>
+                            <td>Cramming Too Much</td>
+                            <td>Long, chaotic prompts confuse the model. Break tasks into smaller parts.</td>
+                        </tr>
+                        <tr>
+                            <td>Skipping Iteration</td>
+                            <td>Don't expect perfection on the first try. Prompting is a process, not a one-shot trick.</td>
+                        </tr>
+                    </table>
+                </div>
 
-                 <h2>🧪 Prompt Engineering in Action (Real Example)</h2>
-                <p><strong>Scenario:</strong> You're writing a product description for an eco-friendly candle.</p>
-
+                <h2>🧪 Prompt Engineering in Action (Real Example)</h2>
                 <div class="example-grid">
                     <div class="example-item">
-                        <div class="example-label">Prompt A (vague):</div>
-                        <p>"Write a description for a candle."</p>
-                        <div class="example-label">Result:</div>
-                        <blockquote>"This candle smells great and is made with natural ingredients."</blockquote>
+                        <div class="example-label">Prompt A (vague)</div>
+                        <p>"Write a description for a candle."<br><em>Result: "This candle smells great and is made with natural ingredients."</em></p>
                     </div>
-                    
                     <div class="example-item">
-                        <div class="example-label">Prompt B (engineered):</div>
-                        <p>"Write a warm, poetic product description (100 words) for an eco-friendly soy wax candle named 'Forest Light'. Highlight its calming pine scent and handmade packaging. Target: eco-conscious buyers."</p>
-                        <div class="example-label">Result:</div>
-                        <blockquote>"Let the serene whisper of the forest fill your home with Forest Light—our handcrafted soy wax candle infused with calming pine essence. Nestled in eco-friendly packaging, each candle is a quiet tribute to nature's stillness, designed for those who cherish peace, sustainability, and subtle beauty."</blockquote>
+                        <div class="example-label">Prompt B (engineered)</div>
+                        <p>"Write a warm, poetic product description (100 words) for an eco-friendly soy wax candle named 'Forest Light'. Highlight its calming pine scent and handmade packaging. Target: eco-conscious buyers."<br><em>Result: "Let the serene whisper of the forest fill your home with Forest Light—our handcrafted soy wax candle..."</em></p>
                     </div>
                 </div>
 
@@ -608,78 +700,86 @@
                             <i class="fas fa-magic"></i>
                             <span>PROMPT TEMPLATE</span>
                         </div>
-                        <pre><code>Act as a <span class="placeholder">[role or expert type]</span>.
-Your task is to <span class="placeholder">[goal]</span>.
-The target audience is <span class="placeholder">[audience]</span>.
-The format should be <span class="placeholder">[list, paragraph, table, etc.]</span>.
-Include <span class="placeholder">[tone, length, special elements]</span>.
-Context: <span class="placeholder">[any background or details]</span>.</code></pre>
+                        <pre><code>Act as a [role or expert type]
+Your task is to [goal]
+The target audience is [audience]
+The format should be [list, paragraph, table, etc.]
+Include [tone, length, special elements]
+Context: [any background or details]</code></pre>
                     </div>
                 </div>
 
-                <div class="example-grid">
-                    <div class="example-item">
-                        <div class="example-label">Template Example:</div>
-                        <p>Act as a travel agent. Your task is to create a 5-day itinerary for Tokyo focused on culture, food, and nature. The target audience is budget travelers in their 20s. Format: bullet points per day. Include recommendations for cheap eats and local experiences. Context: traveling in spring.</p>
-                    </div>
+                <h3>Template Example:</h3>
+                <div class="highlight-box">
+                    <p>Act as a travel agent. Your task is to create a 5-day itinerary for Tokyo focused on culture, food, and nature. The target audience is budget travelers in their 20s. Format: bullet points per day. Include recommendations for cheap eats and local experiences. Context: traveling in spring.</p>
                 </div>
-            <h2>🌍 Real-World Applications</h2>
+
+                <h2>🌍 Real-World Applications</h2>
                 <ul>
-                  <li><strong>Students:</strong> Summarize academic papers, generate quizzes, practice language learning</li>
-                  <li><strong>Entrepreneurs:</strong> Write product descriptions, create social media content, build sales emails</li>
-                  <li><strong>Professionals:</strong> Draft reports, analyze data, prepare presentations</li>
-                  <li><strong>Creatives:</strong> Generate character bios, plot outlines, art prompts</li>
+                    <li><strong>Students:</strong> Summarize academic papers, generate quizzes, practice language learning</li>
+                    <li><strong>Entrepreneurs:</strong> Write product descriptions, create social media content, build sales emails</li>
+                    <li><strong>Professionals:</strong> Draft reports, analyze data, prepare presentations</li>
+                    <li><strong>Creatives:</strong> Generate character bios, plot outlines, art prompts</li>
                 </ul>
 
                 <h2>🛠️ Mini Tutorial: Build Your First Great Prompt</h2>
                 <ol>
-                  <li><strong>Define your objective:</strong> I want an online business idea that doesn't require showing my face.</li>
-                  <li><strong>Add context:</strong> I'm a young woman with basic knowledge of AI and writing.</li>
-                  <li><strong>Specify the format:</strong> I want a table with 3 ideas: Name, Description, and Potential Income.</li>
+                    <li>Define your objective: I want an online business idea that doesn't require showing my face.</li>
+                    <li>Add context: I'm a young woman with basic knowledge of AI and writing.</li>
+                    <li>Specify the format: I want a table with 3 ideas: Name, Description, and Potential Income.</li>
                 </ol>
-
-                <p><strong>Final Prompt:</strong></p>
-                <blockquote>Act as a startup expert. Suggest 3 online business ideas for a young woman with writing and AI skills who doesn't want to show her face. Format: table with columns (Name, Description, Estimated Income). Keep the initial budget low.</blockquote>
+                
+                <div class="prompt-template-container">
+                    <div class="prompt-template">
+                        <div class="prompt-header">
+                            <i class="fas fa-terminal"></i>
+                            <span>FINAL PROMPT</span>
+                        </div>
+                        <pre><code>Act as a startup expert. Suggest 3 online business ideas for a young woman with writing and AI skills who doesn't want to show her face. Format: table with columns (Name, Description, Estimated Income). Keep the initial budget low.</code></pre>
+                    </div>
+                </div>
 
                 <h2>✅ Your Practice Task</h2>
                 <p>Choose one of the following scenarios and craft a prompt using the template:</p>
-                <ul>
-                  <li>You're launching a sustainable fashion blog. You need ideas for your first article.</li>
-                  <li>You're a student and need flashcard-style notes from a chapter about cell biology.</li>
-                  <li>You're planning a trip to Japan and want a 7-day itinerary focused on culture, food, and nature.</li>
-                </ul>
+                <ol>
+                    <li>You're launching a sustainable fashion blog. You need ideas for your first article.</li>
+                    <li>You're a student and need flashcard-style notes from a chapter about cell biology.</li>
+                    <li>You're planning a trip to Japan and want a 7-day itinerary focused on culture, food, and nature.</li>
+                </ol>
                 <p><strong>Bonus:</strong> Test your prompt, iterate on it, and compare your results with a friend!</p>
-</div>
 
                 <h2>❓ Frequently Asked Questions (FAQ)</h2>
                 <div class="highlight-box">
-                    <table style="width: 100%; border-collapse: collapse;">
+                    <table style="width: 100%;">
                         <tr>
-                            <th style="text-align: left; padding: 8px; border-bottom: 1px solid var(--border);">Question</th>
-                            <th style="text-align: left; padding: 8px; border-bottom: 1px solid var(--border);">Answer</th>
+                            <th>Question</th>
+                            <th>Answer</th>
                         </tr>
                         <tr>
-                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">Do I need to know how to code?</td>
-                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">No, just write clear instructions in plain English</td>
+                            <td>Do I need to know how to code?</td>
+                            <td>No, just write clear instructions in plain English</td>
                         </tr>
                         <tr>
-                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">Do prompts work the same across all AI tools?</td>
-                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">The basics do, but some models behave differently</td>
+                            <td>Do prompts work the same across all AI tools?</td>
+                            <td>The basics do, but some models behave differently. Try your prompt in various tools to compare.</td>
                         </tr>
                         <tr>
-                            <td style="padding: 8px;">How do I organize my best prompts?</td>
-                            <td style="padding: 8px;">Save them in Notion, Google Docs, or tools like PromptBase</td>
+                            <td>How do I organize my best prompts?</td>
+                            <td>Save them in Notion, Google Docs, or tools like PromptBase.</td>
+                        </tr>
+                        <tr>
+                            <td>What if my prompt doesn't work?</td>
+                            <td>That's part of the process. Adjust one thing at a time and experiment.</td>
                         </tr>
                     </table>
                 </div>
-        </article>
-    </main>
 
                 <h2>📘 Final Thoughts: It's Not Magic—It's Technique</h2>
                 <p>Prompt engineering is a skill—creative, logical, and powerful. Every great AI result starts with a great prompt. And that's something you can master.</p>
                 <p>So start experimenting, refining, and leveling up. The future isn't just about using AI—it's about knowing how to talk to it.</p>
+
                 <div class="cta">
-                    <p><a href="#">Subscribe</a> to The AI Heaven for more tutorials, prompt ideas, and real-world AI inspiration.</p>
+                    <p><a href="#">Subscribe to The AI Heaven</a> for more tutorials, prompt ideas, and real-world AI inspiration.</p>
                 </div>
             </div>
         </article>
