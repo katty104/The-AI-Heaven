@@ -417,6 +417,72 @@
     height: auto;
     aspect-ratio: 16/9;
 }
+.example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .example-label {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .prompt-template {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .prompt-header {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prompt-header i {
+            font-size: 0.9rem;
+        }
+
+        .placeholder {
+            color: var(--primary-light);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .prompt-template pre {
+                font-size: 0.85rem;
+                padding: 1rem;
+            }
+            
+            .prompt-header {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .example-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -516,42 +582,48 @@
                   <li><strong>Skipping Iteration</strong><br>Don't expect perfection on the first try. Prompting is a process, not a one-shot trick.</li>
                 </ol>
 
-                <h2>🧪 Prompt Engineering in Action (Real Example)</h2>
+                 <h2>🧪 Prompt Engineering in Action (Real Example)</h2>
                 <p><strong>Scenario:</strong> You're writing a product description for an eco-friendly candle.</p>
 
-                <p><strong>Prompt A (vague):</strong></p>
-                <blockquote>"Write a description for a candle."</blockquote>
-
-                <p><strong>AI Output:</strong></p>
-                <blockquote>"This candle smells great and is made with natural ingredients."</blockquote>
-
-                <p><strong>Prompt B (engineered):</strong></p>
-                <blockquote>"Write a warm, poetic product description (100 words) for an eco-friendly soy wax candle named 'Forest Light'. Highlight its calming pine scent and handmade packaging. Target: eco-conscious buyers."</blockquote>
-
-                <p><strong>AI Output:</strong></p>
-                <blockquote>"Let the serene whisper of the forest fill your home with Forest Light—our handcrafted soy wax candle infused with calming pine essence. Nestled in eco-friendly packaging, each candle is a quiet tribute to nature's stillness, designed for those who cherish peace, sustainability, and subtle beauty."</blockquote>
+                <div class="example-grid">
+                    <div class="example-item">
+                        <div class="example-label">Prompt A (vague):</div>
+                        <p>"Write a description for a candle."</p>
+                        <div class="example-label">Result:</div>
+                        <blockquote>"This candle smells great and is made with natural ingredients."</blockquote>
+                    </div>
+                    
+                    <div class="example-item">
+                        <div class="example-label">Prompt B (engineered):</div>
+                        <p>"Write a warm, poetic product description (100 words) for an eco-friendly soy wax candle named 'Forest Light'. Highlight its calming pine scent and handmade packaging. Target: eco-conscious buyers."</p>
+                        <div class="example-label">Result:</div>
+                        <blockquote>"Let the serene whisper of the forest fill your home with Forest Light—our handcrafted soy wax candle infused with calming pine essence. Nestled in eco-friendly packaging, each candle is a quiet tribute to nature's stillness, designed for those who cherish peace, sustainability, and subtle beauty."</blockquote>
+                    </div>
+                </div>
 
                 <h2>🧭 Prompt Engineering Template</h2>
-                
-                <p>Here's a simple prompt template you can reuse:</p>
-                
                 <div class="prompt-template-container">
-    <div class="prompt-template">
-        <div class="prompt-header">
-            <i class="fas fa-magic"></i>
-            <span>PROMPT TEMPLATE</span>
-        </div>
-        <pre><code>Act as a <span class="placeholder">[role or expert type]</span>.
+                    <div class="prompt-template">
+                        <div class="prompt-header">
+                            <i class="fas fa-magic"></i>
+                            <span>PROMPT TEMPLATE</span>
+                        </div>
+                        <pre><code>Act as a <span class="placeholder">[role or expert type]</span>.
 Your task is to <span class="placeholder">[goal]</span>.
 The target audience is <span class="placeholder">[audience]</span>.
 The format should be <span class="placeholder">[list, paragraph, table, etc.]</span>.
 Include <span class="placeholder">[tone, length, special elements]</span>.
 Context: <span class="placeholder">[any background or details]</span>.</code></pre>
-    </div>
-                    
-  <blockquote>Act as a travel agent. Your task is to create a 5-day itinerary for Tokyo focused on culture, food, and nature. The target audience is budget travelers in their 20s. Format: bullet points per day. Include recommendations for cheap eats and local experiences. Context: traveling in spring.</blockquote>
+                    </div>
+                </div>
 
-                <h2>🌍 Real-World Applications</h2>
+                <div class="example-grid">
+                    <div class="example-item">
+                        <div class="example-label">Template Example:</div>
+                        <p>Act as a travel agent. Your task is to create a 5-day itinerary for Tokyo focused on culture, food, and nature. The target audience is budget travelers in their 20s. Format: bullet points per day. Include recommendations for cheap eats and local experiences. Context: traveling in spring.</p>
+                    </div>
+                </div>
+            <h2>🌍 Real-World Applications</h2>
                 <ul>
                   <li><strong>Students:</strong> Summarize academic papers, generate quizzes, practice language learning</li>
                   <li><strong>Entrepreneurs:</strong> Write product descriptions, create social media content, build sales emails</li>
@@ -579,18 +651,30 @@ Context: <span class="placeholder">[any background or details]</span>.</code></p
                 <p><strong>Bonus:</strong> Test your prompt, iterate on it, and compare your results with a friend!</p>
 
                <h2>❓ Frequently Asked Questions (FAQ)</h2>
-<div class="highlight-box">
-    <p><strong>Do I need to know how to code?</strong><br>
-    No, just write clear instructions in plain English.</p>
+< <div class="highlight-box">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <th style="text-align: left; padding: 8px; border-bottom: 1px solid var(--border);">Question</th>
+                            <th style="text-align: left; padding: 8px; border-bottom: 1px solid var(--border);">Answer</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">Do I need to know how to code?</td>
+                            <td style="padding: 8px; border-bottom: 1px solid var(--border);">No, just write clear instructions in plain English</td>
     
-    <p><strong>Do prompts work the same across all AI tools?</strong><br>
-    The basics do, but some models behave differently. Try your prompt in various tools to compare.</p>
+    <td style="padding: 8px; border-bottom: 1px solid var(--border);">Do prompts work the same across all AI tools?</td>
+    <td style="padding: 8px; border-bottom: 1px solid var(--border);">The basics do, but some models behave differently. Try your prompt in various tools to compare.</td>
     
-    <p><strong>How do I organize my best prompts?</strong><br>
-    Save them in Notion, Google Docs, or tools like PromptBase.</p>
+    <td style="padding: 8px; border-bottom: 1px solid var(--border);">How do I organize my best prompts?</td>
+ <td style="padding: 8px; border-bottom: 1px solid var(--border);">Save them in Notion, Google Docs, or tools like PromptBase.</td>
     
-    <p><strong>What if my prompt doesn't work?</strong><br>
-    That's part of the process. Adjust one thing at a time and experiment.</p>
+<td style="padding: 8px; border-bottom: 1px solid var(--border);">What if my prompt doesn't work?</td>
+<td style="padding: 8px; border-bottom: 1px solid var(--border);">That's part of the process. Adjust one thing at a time and experiment.</td>
+                                                    </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+    </main>
 
                 <h2>📘 Final Thoughts: It's Not Magic—It's Technique</h2>
                 <p>Prompt engineering is a skill—creative, logical, and powerful. Every great AI result starts with a great prompt. And that's something you can master.</p>
