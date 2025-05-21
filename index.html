@@ -83,7 +83,31 @@
         aspect-ratio: 1/1;
     }
 }
+all-posts-cta {
+  text-align: center;
+  margin: 3rem 0 1rem;
+}
 
+.btn-primary {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.btn-primary i {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
   </style>
 </head>
 <body>
@@ -109,6 +133,7 @@
         <ul class="nav-list" role="menu">
           <li><a href="#home" role="menuitem">Home</a></li>
           <li><a href="#tutorials" role="menuitem">Tutorials</a></li>
+          <li><a href="#moretutorials" role="menuitem">More Tutorials</a></li>
           <li><a href="#articles" role="menuitem">Articles</a></li>
           <li><a href="#tools" role="menuitem">AI Tools</a></li>
           <li><a href="#about" role="menuitem">About</a></li>
@@ -191,8 +216,14 @@
             </div>
           </article>
         </div>
-      </div>
-    </section>
+ <div class="all-posts-cta">
+      <a href="Tutorials.html" class="btn btn-primary">
+        <i class="fas fa-archive"></i>
+        Explore All AI Tutorials
+      </a>
+    </div>
+  </div>
+</section>
 
     <!-- Articles Section -->
     <section id="articles" class="section articles">
