@@ -772,4 +772,9 @@ p {
   flex-direction: column; /* fuerza que vayan en columna */
   gap: 2rem; /* espacio entre tarjetas */
 }
-
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: stretch; /* Asegura que ocupen el espacio disponible */
+}
