@@ -767,14 +767,11 @@ p {
   background: none;   /* quita el fondo morado */
   padding: 0;         /* quita el espacio interno */
 }
-.all-posts .card-grid {
-  display: flex;
-  flex-direction: column; /* fuerza que vayan en columna */
-  gap: 2rem; /* espacio entre tarjetas */
-}
-.card-grid {
+/* Solo para los tutoriales */
+.section.tutorials .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    justify-items: stretch; /* Asegura que ocupen el espacio disponible */
+    justify-items: stretch;
 }
+
