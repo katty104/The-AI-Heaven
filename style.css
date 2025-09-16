@@ -762,8 +762,8 @@ p {
 }
 .all-posts-cta {
   text-align: center;
-  margin-top: 15rem;   /* espacio arriba */
-  margin-bottom: 15rem; /* espacio abajo */
+  margin-top: 35rem;   /* espacio arriba */
+  margin-bottom: 35rem; /* espacio abajo */
   background: none;   /* quita el fondo morado */
   padding: 0;         /* quita el espacio interno */
 }
