@@ -767,4 +767,9 @@ p {
   background: none;   /* quita el fondo morado */
   padding: 0;         /* quita el espacio interno */
 }
+.all-posts .card-grid {
+  display: flex;
+  flex-direction: column; /* fuerza que vayan en columna */
+  gap: 2rem; /* espacio entre tarjetas */
+}
 
