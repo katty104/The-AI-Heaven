@@ -760,6 +760,12 @@ p {
 .resources-list li {
     margin-bottom: 0.5rem;
 }
+.section.tutorials .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: stretch;
+}
 .all-posts-cta {
   text-align: center;
   margin-top: 35rem;   /* espacio arriba */
@@ -767,11 +773,3 @@ p {
   background: none;   /* quita el fondo morado */
   padding: 0;         /* quita el espacio interno */
 }
-/* Solo para los tutoriales */
-.section.tutorials .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    justify-items: stretch;
-}
-
