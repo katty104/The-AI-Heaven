@@ -761,14 +761,10 @@ p {
     margin-bottom: 0.5rem;
 }
 .all-posts-cta {
-  margin: 3rem auto;
   text-align: center;
-  padding: 1.5rem;
-  background: var(--primary-light);
-  border-radius: 8px;
+  margin-top: 2rem;   /* espacio arriba */
+  margin-bottom: 2rem; /* espacio abajo */
+  background: none;   /* quita el fondo morado */
+  padding: 0;         /* quita el espacio interno */
 }
 
-.all-posts-cta a {
-  color: #fff;
-  font-weight: 600;
-}
